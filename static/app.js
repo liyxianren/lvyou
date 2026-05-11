@@ -195,6 +195,25 @@ function formatModelOperationPreview(operation, index) {
     lines.push(`名称：${payload.name || "未命名预订"}`);
     lines.push(`状态：${payload.status || "待定"}`);
     lines.push(`价格：${formatCurrency(payload.price)}`);
+  } else if (operation.type === "update_booking") {
+    const changes = payload.changes || {};
+    lines.push(`预订ID：${payload.booking_id || "未指定"}`);
+    if (changes.status) lines.push(`状态：${changes.status}`);
+    if (changes.price !== undefined) lines.push(`价格：${formatCurrency(changes.price)}`);
+    if (changes.notes) lines.push(`备注：${changes.notes}`);
+  } else if (operation.type === "update_supply") {
+    const changes = payload.changes || {};
+    lines.push(`物资ID：${payload.supply_id || "未指定"}`);
+    if (changes.status) lines.push(`状态：${changes.status}`);
+    if (changes.quantity !== undefined) lines.push(`数量：${changes.quantity}`);
+    if (changes.notes) lines.push(`备注：${changes.notes}`);
+  } else if (operation.type === "update_itinerary") {
+    lines.push(`日期：${payload.day_id || "未指定"}`);
+    lines.push(`字段：${payload.field || "未指定"}`);
+    if (payload.value) lines.push(`内容：${payload.value}`);
+    if (payload.title) lines.push(`标题：${payload.title}`);
+    if (payload.time) lines.push(`时间：${payload.time}`);
+    if (payload.detail) lines.push(`详情：${payload.detail}`);
   } else {
     lines.push(operation.label || "待确认修改");
   }
@@ -355,6 +374,18 @@ document.querySelectorAll("[data-supply-form]").forEach((form) => {
         status: values.status,
         quantity: values.quantity,
       });
+      reloadSoon();
+    } catch (error) {
+      alert(error.message);
+    }
+  });
+});
+
+document.querySelectorAll("[data-delete-supply]").forEach((button) => {
+  button.addEventListener("click", async () => {
+    if (!confirm("删除这个物资？")) return;
+    try {
+      await postJson(`/api/supplies/${button.dataset.deleteSupply}/delete`, {});
       reloadSoon();
     } catch (error) {
       alert(error.message);
