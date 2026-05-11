@@ -175,6 +175,34 @@ function formToObject(form) {
   return Object.fromEntries(new FormData(form).entries());
 }
 
+function formatCurrency(value) {
+  const number = Number(value || 0);
+  return Number.isInteger(number) ? `¥${number}` : `¥${number.toFixed(2)}`;
+}
+
+function formatModelOperationPreview(operation, index) {
+  const payload = operation.payload || {};
+  const lines = [`${index + 1}. ${operation.label || "待确认记录"}`];
+
+  if (operation.type === "add_expense") {
+    lines.push(`日期：${payload.day_id || "未指定"}`);
+    lines.push(`类别：${payload.category || "其他"}`);
+    lines.push(`名称：${payload.title || "未命名支出"}`);
+    lines.push(`金额：${formatCurrency(payload.amount)}`);
+  } else if (operation.type === "add_booking") {
+    lines.push(`日期：${payload.day_id || "未指定"}`);
+    lines.push(`类型：${payload.type || "其他"}`);
+    lines.push(`名称：${payload.name || "未命名预订"}`);
+    lines.push(`状态：${payload.status || "待定"}`);
+    lines.push(`价格：${formatCurrency(payload.price)}`);
+  } else {
+    lines.push(operation.label || "待确认修改");
+  }
+
+  if (payload.notes) lines.push(`备注：${payload.notes}`);
+  return lines.join("\n");
+}
+
 function reloadSoon() {
   window.setTimeout(() => window.location.reload(), 250);
 }
@@ -218,8 +246,7 @@ document.querySelector("[data-model-entry-form]")?.addEventListener("submit", as
     const operations = pendingProposal.operations || [];
     const lines = [pendingProposal.summary || "解析结果"];
     operations.forEach((operation, index) => {
-      lines.push(`${index + 1}. ${operation.label}`);
-      lines.push(JSON.stringify(operation.payload, null, 2));
+      lines.push(formatModelOperationPreview(operation, index));
     });
     box.textContent = lines.join("\n\n");
     actions.hidden = operations.length === 0;
@@ -352,8 +379,7 @@ document.querySelector("[data-ai-form]")?.addEventListener("submit", async (even
     const lines = [pendingProposal.summary || "变更预览"];
     if (operations.length) {
       operations.forEach((operation, index) => {
-        lines.push(`${index + 1}. ${operation.label}`);
-        lines.push(JSON.stringify(operation.payload, null, 2));
+        lines.push(formatModelOperationPreview(operation, index));
       });
     } else {
       lines.push("没有可写入的结构化修改。");
