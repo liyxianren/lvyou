@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}完整行程{% endblock %}
+{% block heading %}完整行程{% endblock %}
+
+{% block content %}
+<section class="hero-panel compact">
+  <p class="eyebrow">Itinerary</p>
+  <h2>{{ trip.meta.title }}</h2>
+  <p>按天查看路线、时间线、预算、风险和预订入口。</p>
+</section>
+
+<section class="section">
+  <h2>行程日</h2>
+  <div class="trip-day-list">
+    {% for day in trip.days %}
+    <a class="trip-day-card" href="{{ url_for('day_detail', day_id=day.id) }}">
+      <div>
+        <span class="pill">Day {{ day.day }}</span>
+        <h3>{{ day.title }}</h3>
+        <p>{{ day.date }} · {{ day.route }}</p>
+      </div>
+      <div class="trip-day-actions">
+        <span>{{ day.drive.time if day.drive is defined else '待细化' }}</span>
+        <strong>查看</strong>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section">
+  <h2>快捷入口</h2>
+  <div class="quick-link-grid">
+    {% for day in trip.days %}
+    <a href="{{ url_for('ledger', day_id=day.id) }}">Day {{ day.day }} 账本</a>
+    <a href="{{ url_for('bookings', day_id=day.id) }}">Day {{ day.day }} 预订</a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

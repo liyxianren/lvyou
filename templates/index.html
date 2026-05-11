@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}今日行程{% endblock %}
+{% block heading %}今日行程看板{% endblock %}
+
+{% block content %}
+<section class="hero-panel">
+  <div class="day-meta">
+    <span>{{ day.date }}</span>
+    <span>{{ day.drive.time }}</span>
+  </div>
+  <h2>{{ day.title }}</h2>
+  <p>{{ day.summary }}</p>
+  <div class="next-action">
+    <span>下一步</span>
+    <strong data-current-action>{{ day.next_action }}</strong>
+  </div>
+  <div class="hero-actions">
+    <a href="{{ url_for('itinerary') }}">查看完整行程</a>
+    <a href="{{ url_for('day_detail', day_id=day.id) }}">今日详情</a>
+  </div>
+</section>
+
+<section class="live-panel" data-live-panel data-day-date="{{ day.date }}">
+  <div>
+    <span>当前时间</span>
+    <strong data-live-clock>--:--</strong>
+  </div>
+  <p data-live-summary>正在匹配时间线...</p>
+</section>
+
+<section class="metric-grid">
+  <div class="metric">
+    <span>预算区间</span>
+    <strong>¥{{ bounds.min|int }}-{{ bounds.max|int }}</strong>
+  </div>
+  <div class="metric">
+    <span>今日已记</span>
+    <strong>¥{{ actual|round(2) }}</strong>
+  </div>
+  <div class="metric">
+    <span>总预算</span>
+    <strong>¥{{ trip.meta.total_budget }}</strong>
+  </div>
+  <div class="metric">
+    <span>总已记</span>
+    <strong>¥{{ total_actual|round(2) }}</strong>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>风险提醒</h2>
+    <a href="{{ url_for('day_detail', day_id=day.id) }}">详情</a>
+  </div>
+  <ul class="compact-list">
+    {% for risk in day.risks %}
+    <li>{{ risk }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>今日时间线</h2>
+  </div>
+  <div class="timeline" data-smart-timeline data-day-date="{{ day.date }}">
+    {% for item in day.timeline %}
+    <article class="timeline-item" data-time="{{ item.time }}" data-title="{{ item.title }}">
+      <time>{{ item.time }}</time>
+      <div>
+        <span class="timeline-status" data-status>待开始</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.detail }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

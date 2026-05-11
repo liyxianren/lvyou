@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}预订{% endblock %}
+{% block heading %}预订与采购{% endblock %}
+
+{% block content %}
+<section class="hero-panel compact">
+  <p class="eyebrow">Day Bookings</p>
+  <h2>{{ selected_day.date if selected_day else selected_day_id }}</h2>
+  <p>只看当天午餐、酒店、景区、租车等执行项。</p>
+</section>
+
+<section class="day-switcher" aria-label="选择日期">
+  {% for day in trip.days %}
+  <a href="{{ url_for('bookings', day_id=day.id) }}" class="{{ 'active' if day.id == selected_day_id else '' }}">
+    <strong>Day {{ day.day }}</strong>
+    <span>{{ day.date }}</span>
+  </a>
+  {% endfor %}
+</section>
+
+<section class="section">
+  <h2>模型添加预订</h2>
+  <form class="model-entry-form" data-model-entry-form data-mode="booking">
+    <label>
+      日期
+      <select name="day_id">
+        {% for day in trip.days %}
+        <option value="{{ day.id }}" {{ 'selected' if day.id == selected_day_id else '' }}>{{ day.date }} · {{ day.title }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>
+      文字
+      <textarea name="text" rows="3" placeholder="例如：云居酒店已预订 298，携程，可免费取消；赛里木湖门票两人290"></textarea>
+    </label>
+    <label>
+      图片
+      <input name="image" type="file" accept="image/*">
+    </label>
+    <button type="submit">解析预订</button>
+  </form>
+  <div class="proposal-box model-proposal" data-model-proposal hidden></div>
+  <div class="action-row" data-model-actions hidden>
+    <button type="button" data-confirm-model-proposal>确认写入</button>
+    <button type="button" class="secondary" data-clear-model-proposal>取消</button>
+  </div>
+</section>
+
+<details class="section">
+  <summary>手动备用添加</summary>
+  <form class="form-grid" data-booking-add-form>
+    <label>
+      日期
+      <select name="day_id">
+        {% for day in trip.days %}
+        <option value="{{ day.id }}" {{ 'selected' if day.id == selected_day_id else '' }}>{{ day.date }} · {{ day.title }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>
+      类型
+      <select name="type">
+        <option value="酒店">酒店</option>
+        <option value="餐厅">餐厅</option>
+        <option value="景区">景区</option>
+        <option value="租车">租车</option>
+        <option value="交通">交通</option>
+        <option value="其他">其他</option>
+      </select>
+    </label>
+    <label class="wide">
+      名称
+      <input name="name" placeholder="例如 奎屯明宇丽呈酒店" required>
+    </label>
+    <label>
+      状态
+      <select name="status">
+        <option value="待定">待定</option>
+        <option value="待确认">待确认</option>
+        <option value="已预订">已预订</option>
+        <option value="已确认">已确认</option>
+        <option value="取消">取消</option>
+      </select>
+    </label>
+    <label>
+      价格
+      <input name="price" type="number" step="0.01" min="0" placeholder="300">
+    </label>
+    <label class="wide">
+      备注
+      <input name="notes" placeholder="平台、取消规则、地址、电话等">
+    </label>
+    <button type="submit">添加预订</button>
+  </form>
+</details>
+
+<section class="section">
+  <div class="section-head">
+    <h2>当天预订</h2>
+    <span class="subtle">{{ bookings|length }} 项</span>
+  </div>
+  <div class="item-list">
+    {% for booking in bookings %}
+    <article class="list-item booking-card status-{{ booking.status }}">
+      <div>
+        <div class="item-topline">
+          <span class="pill">{{ booking.type }}</span>
+          <span class="status-chip status-{{ booking.status }}" title="{{ booking.status }}">
+            <span aria-hidden="true"></span>
+            <b>{{ booking.status }}</b>
+          </span>
+        </div>
+        <h3>{{ booking.name }}</h3>
+        <p>{{ booking.notes }}</p>
+        <p>参考价：¥{{ booking.price }}</p>
+      </div>
+      <form class="status-form" data-booking-form="{{ booking.id }}">
+        <select name="status">
+          {% for status in statuses %}
+          <option value="{{ status }}" {{ 'selected' if status == booking.status else '' }}>{{ status }}</option>
+          {% endfor %}
+        </select>
+        <input name="price" type="number" step="0.01" value="{{ booking.price }}">
+        <button type="submit">保存</button>
+        <button class="secondary" type="button" data-delete-booking="{{ booking.id }}">删除</button>
+      </form>
+    </article>
+    {% else %}
+    <p class="muted">当天还没有预订项。</p>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>全局补给</h2>
+    <span class="subtle">不按天过滤</span>
+  </div>
+  <div class="item-list">
+    {% for item in trip.supplies %}
+    <article class="list-item">
+      <div>
+        <span class="pill">{{ item.category }}</span>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.quantity }}</p>
+      </div>
+      <form class="status-form" data-supply-form="{{ item.id }}">
+        <select name="status">
+          {% for status in ["待购买", "已购买", "不买", "备用"] %}
+          <option value="{{ status }}" {{ 'selected' if status == item.status else '' }}>{{ status }}</option>
+          {% endfor %}
+        </select>
+        <input name="quantity" value="{{ item.quantity }}">
+        <button type="submit">保存</button>
+      </form>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

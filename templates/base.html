@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}旅行执行{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body data-trip-year="{{ trip.meta.trip_year if trip is defined and trip.meta.trip_year is defined else 2026 }}">
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Travel Ops</p>
+      <h1>{% block heading %}新疆旅行执行{% endblock %}</h1>
+    </div>
+  </header>
+
+  <main class="page">
+    {% block content %}{% endblock %}
+  </main>
+
+  <nav class="bottom-nav" aria-label="主导航">
+    <a href="{{ url_for('index') }}" class="{{ 'active' if request.endpoint == 'index' else '' }}">今日</a>
+    <a href="{{ url_for('itinerary') }}" class="{{ 'active' if request.endpoint in ['itinerary', 'day_detail'] else '' }}">行程</a>
+    <a href="{{ url_for('ledger') }}" class="{{ 'active' if request.endpoint == 'ledger' else '' }}">账本</a>
+    <a href="{{ url_for('bookings') }}" class="{{ 'active' if request.endpoint == 'bookings' else '' }}">预订</a>
+    <a href="{{ url_for('assistant') }}" class="{{ 'active' if request.endpoint == 'assistant' else '' }}">AI</a>
+  </nav>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
