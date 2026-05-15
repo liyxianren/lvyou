@@ -7,12 +7,27 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from flask import Flask, jsonify, redirect, render_template, request, url_for
+from markdown import markdown
 from openai import OpenAI
 
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_PATH = BASE_DIR / "data" / "trip.json"
+CONTENT_DIR = BASE_DIR / "content"
+
+
+def load_day_markdown(day_id):
+    """Load markdown content for a day and convert to HTML."""
+    md_file = CONTENT_DIR / f"{day_id}.md"
+    if not md_file.exists():
+        return None
+    text = md_file.read_text(encoding="utf-8")
+    return markdown(
+        text,
+        extensions=["tables", "fenced_code", "codehilite", "toc", "nl2br"],
+        output_format="html5",
+    )
 
 app = Flask(__name__)
 app.config["JSON_AS_ASCII"] = False
@@ -183,7 +198,15 @@ def day_detail(day_id):
     day = get_day(trip, day_id)
     if not day:
         return redirect(url_for("index"))
-    return render_template("day.html", trip=trip, day=day, bounds=budget_bounds(day), actual=actual_total(trip, day_id))
+    day_md = load_day_markdown(day_id)
+    return render_template(
+        "day.html",
+        trip=trip,
+        day=day,
+        bounds=budget_bounds(day),
+        actual=actual_total(trip, day_id),
+        day_md=day_md,
+    )
 
 
 @app.route("/ledger")
