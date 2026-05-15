@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}旅行执行{% endblock %}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v={{ static_version }}">
 </head>
 <body data-trip-year="{{ trip.meta.trip_year if trip is defined and trip.meta.trip_year is defined else 2026 }}">
   <header class="topbar">

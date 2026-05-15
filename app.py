@@ -17,6 +17,20 @@ DATA_PATH = BASE_DIR / "data" / "trip.json"
 CONTENT_DIR = BASE_DIR / "content"
 
 
+def _git_head() -> str:
+    """Return short git HEAD hash, or 'dev' if not available."""
+    try:
+        import subprocess
+        return subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"],
+            cwd=str(BASE_DIR),
+            stderr=subprocess.DEVNULL,
+            text=True,
+        ).strip()
+    except Exception:
+        return "dev"
+
+
 def load_day_markdown(day_id):
     """Load markdown content for a day and convert to HTML."""
     md_file = CONTENT_DIR / f"{day_id}.md"
@@ -31,6 +45,11 @@ def load_day_markdown(day_id):
 
 app = Flask(__name__)
 app.config["JSON_AS_ASCII"] = False
+
+
+@app.context_processor
+def inject_static_version():
+    return {"static_version": _git_head()}
 
 BOOKING_STATUSES = {"待定", "待确认", "已预订", "已确认", "取消"}
 SUPPLY_STATUSES = {"待购买", "已购买", "不买", "备用"}
