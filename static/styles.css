@@ -732,6 +732,9 @@ button.secondary {
 .markdown-body {
   font-size: 15px;
   line-height: 1.72;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  word-break: break-word;
 }
 
 .markdown-body h1 {
@@ -809,6 +812,7 @@ button.secondary {
   background: rgba(223, 214, 200, 0.45);
   font-family: "SF Mono", "Fira Code", monospace;
   font-size: 0.88em;
+  word-break: break-all;
 }
 
 .markdown-body pre {
@@ -818,6 +822,7 @@ button.secondary {
   border-radius: 8px;
   background: rgba(223, 214, 200, 0.3);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .markdown-body pre code {
@@ -825,6 +830,7 @@ button.secondary {
   background: none;
   font-size: 13px;
   line-height: 1.55;
+  word-break: normal;
 }
 
 .markdown-body hr {
@@ -848,6 +854,15 @@ button.secondary {
   margin: 12px 0 18px;
   border-collapse: collapse;
   font-size: 14px;
+  table-layout: auto;
+}
+
+.markdown-body thead,
+.markdown-body tbody,
+.markdown-body tr {
+  display: revert;
+  width: revert;
+  table-layout: revert;
 }
 
 .markdown-body th {
@@ -856,7 +871,6 @@ button.secondary {
   border-bottom: 2px solid var(--accent);
   font-weight: 800;
   text-align: left;
-  white-space: nowrap;
 }
 
 .markdown-body td {
@@ -880,4 +894,40 @@ button.secondary {
 
 .markdown-body del {
   opacity: 0.55;
+}
+
+/* ── Mobile markdown ── */
+@media (max-width: 480px) {
+  .markdown-body {
+    font-size: 14px;
+  }
+
+  .markdown-body h1 {
+    font-size: 19px;
+  }
+
+  .markdown-body h2 {
+    font-size: 16px;
+  }
+
+  .markdown-body h3 {
+    font-size: 15px;
+  }
+
+  .markdown-body table {
+    font-size: 13px;
+  }
+
+  .markdown-body th,
+  .markdown-body td {
+    padding: 8px;
+  }
+
+  .markdown-body pre {
+    padding: 10px;
+  }
+
+  .markdown-body blockquote {
+    padding: 8px 12px;
+  }
 }
