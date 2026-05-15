@@ -51,6 +51,16 @@ app.config["JSON_AS_ASCII"] = False
 def inject_static_version():
     return {"static_version": _git_head()}
 
+
+@app.after_request
+def no_cache(response):
+    """Force no-cache on all HTML pages so browsers always fetch fresh."""
+    if response.content_type and "text/html" in response.content_type:
+        response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, max-age=0"
+        response.headers["Pragma"] = "no-cache"
+        response.headers["Expires"] = "0"
+    return response
+
 BOOKING_STATUSES = {"待定", "待确认", "已预订", "已确认", "取消"}
 SUPPLY_STATUSES = {"待购买", "已购买", "不买", "备用"}
 BOOKING_STATUS_ALIASES = {
