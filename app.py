@@ -1,5 +1,4 @@
 import copy
-import base64
 import json
 import os
 import uuid
@@ -111,6 +110,34 @@ def make_booking(payload, trip):
         "price": float(payload.get("price") or 0),
         "notes": str(payload.get("notes", "")).strip(),
     }
+
+
+def booking_is_accountable(booking):
+    return booking.get("status") in {"已预订", "已确认"} and float(booking.get("price") or 0) > 0
+
+
+def sync_booking_expense(trip, booking):
+    if not booking_is_accountable(booking):
+        return None
+    expense_id = f"exp-booking-{booking['id']}"
+    expense = next((item for item in trip.setdefault("expenses", []) if item.get("booking_id") == booking["id"]), None)
+    notes = f"来自预订自动同步：{booking.get('notes', '')}".rstrip("：")
+    payload = {
+        "id": expense_id,
+        "day_id": booking.get("day_id", trip["meta"].get("current_day", "day1")),
+        "category": booking.get("type", "预订"),
+        "title": f"预订：{booking.get('name', '未命名预订')}",
+        "amount": float(booking.get("price") or 0),
+        "paid_at": "预订同步",
+        "notes": notes,
+        "booking_id": booking["id"],
+    }
+    if expense:
+        expense.update(payload)
+    else:
+        expense = payload
+        trip.setdefault("expenses", []).append(expense)
+    return expense
 
 
 def make_supply(payload):
@@ -384,6 +411,7 @@ def api_update_booking(booking_id):
         booking["price"] = float(payload["price"])
     if "notes" in payload:
         booking["notes"] = str(payload["notes"]).strip()
+    sync_booking_expense(trip, booking)
     save_trip(trip)
     return jsonify({"ok": True, "booking": booking})
 
@@ -398,6 +426,7 @@ def api_add_booking():
 
     booking = make_booking(payload, trip)
     trip.setdefault("bookings", []).append(booking)
+    sync_booking_expense(trip, booking)
     save_trip(trip)
     return jsonify({"ok": True, "booking": booking})
 
@@ -462,6 +491,87 @@ def api_update_supply(supply_id):
         item["category"] = str(payload["category"]).strip()
     save_trip(trip)
     return jsonify({"ok": True, "supply": item})
+
+
+@app.get("/api/heskills")
+def api_heskills():
+    return jsonify({
+        "ok": True,
+        "name": "lvyou-travel-api",
+        "description": "旅行执行网站 API 技能清单。所有写入类变更应先生成 proposal，再由 /api/confirm-change 确认写入。",
+        "skills": [
+            {
+                "name": "parse_travel_entry",
+                "description": "把自然语言文本解析为账本或预订 proposal；不支持图片解析。",
+                "method": "POST",
+                "path": "/api/ai/parse-entry",
+                "content_type": "multipart/form-data",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "mode": {"type": "string", "enum": ["expense", "booking"]},
+                        "day_id": {"type": "string"},
+                        "text": {"type": "string"},
+                    },
+                    "required": ["mode", "text"],
+                },
+            },
+            {
+                "name": "confirm_travel_change",
+                "description": "确认模型生成的 proposal 并写入旅行数据。",
+                "method": "POST",
+                "path": "/api/confirm-change",
+                "content_type": "application/json",
+                "input_schema": {"type": "object", "properties": {"proposal": {"type": "object"}}, "required": ["proposal"]},
+            },
+            {
+                "name": "manage_bookings",
+                "description": "新增、查询、修改、删除预订；状态为已预订/已确认且价格大于 0 时自动同步账本。",
+                "methods": ["GET", "POST", "PUT", "DELETE"],
+                "paths": ["/api/bookings", "/api/bookings/<booking_id>"],
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "day_id": {"type": "string"},
+                        "type": {"type": "string"},
+                        "name": {"type": "string"},
+                        "status": {"type": "string", "enum": sorted(BOOKING_STATUSES)},
+                        "price": {"type": "number"},
+                        "notes": {"type": "string"},
+                    },
+                },
+            },
+            {
+                "name": "manage_expenses",
+                "description": "查询、新增、修改、删除账本支出。",
+                "methods": ["GET", "POST", "PUT", "DELETE"],
+                "paths": ["/api/expenses", "/api/expenses/<expense_id>"],
+            },
+            {
+                "name": "manage_supplies",
+                "description": "查询、新增、修改、删除全局物资。",
+                "methods": ["GET", "POST", "PUT", "DELETE"],
+                "paths": ["/api/supplies", "/api/supplies/<supply_id>"],
+            },
+        ],
+        "endpoints": [
+            {"method": "GET", "path": "/api/trip"},
+            {"method": "POST", "path": "/api/ai/parse-entry"},
+            {"method": "POST", "path": "/api/ai/propose"},
+            {"method": "POST", "path": "/api/confirm-change"},
+            {"method": "GET/POST", "path": "/api/bookings"},
+            {"method": "GET/POST/PUT/DELETE", "path": "/api/bookings/<booking_id>"},
+            {"method": "GET/POST", "path": "/api/expenses"},
+            {"method": "GET/POST/PUT/DELETE", "path": "/api/expenses/<expense_id>"},
+            {"method": "GET/POST", "path": "/api/supplies"},
+            {"method": "GET/POST/PUT/DELETE", "path": "/api/supplies/<supply_id>"},
+        ],
+    })
+
+
+@app.get("/api/skills")
+def api_skills_alias():
+    return api_heskills()
 
 
 @app.delete("/api/supplies/<supply_id>")
@@ -622,7 +732,7 @@ def extract_json_object(text):
         raise
 
 
-def model_parse_entry(mode, day_id, user_text, image_file=None):
+def model_parse_entry(mode, day_id, user_text):
     api_key = os.environ.get("DEEPSEEK_API_KEY")
     if not api_key:
         raise RuntimeError("未配置 DEEPSEEK_API_KEY。请在环境变量或 .env 中设置后重启 Flask。")
@@ -641,7 +751,7 @@ def model_parse_entry(mode, day_id, user_text, image_file=None):
             "amount": 0,
             "notes": "可空"
         }
-        task = "把用户输入或图片中的消费信息解析成一笔账本记录。金额必须是数字；没有金额时 amount 为 0。"
+        task = "把用户输入中的消费信息解析成一笔账本记录。金额必须是数字；没有金额时 amount 为 0。"
     elif mode == "booking":
         schema_hint = {
             "type": "酒店/餐厅/景区/租车/交通/其他",
@@ -650,7 +760,7 @@ def model_parse_entry(mode, day_id, user_text, image_file=None):
             "price": 0,
             "notes": "平台、地址、取消规则、截图中有用信息，可空"
         }
-        task = "把用户输入或图片中的预订信息解析成一条预订记录。价格必须是数字；没有价格时 price 为 0。"
+        task = "把用户输入中的预订信息解析成一条预订记录。价格必须是数字；没有价格时 price 为 0。用户明确说已预订/已订/订好了/已确认/取消时，必须解析到对应 status。"
     else:
         raise ValueError("不支持的解析类型")
 
@@ -663,23 +773,11 @@ def model_parse_entry(mode, day_id, user_text, image_file=None):
         "不要编造已付款、已预订、已确认等事实；只有用户明确说了才使用这些状态。"
     )
 
-    content = [{"type": "text", "text": prompt}]
-    if image_file and image_file.filename:
-        raw = image_file.read()
-        if len(raw) > 8 * 1024 * 1024:
-            raise ValueError("图片不能超过 8MB")
-        mime = image_file.mimetype or "image/jpeg"
-        encoded = base64.b64encode(raw).decode("ascii")
-        content.append({
-            "type": "image_url",
-            "image_url": {"url": f"data:{mime};base64,{encoded}"}
-        })
-
     response = client.chat.completions.create(
         model=os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash"),
         messages=[
             {"role": "system", "content": "你是旅行网站的数据录入解析器，输出必须是严格 JSON。"},
-            {"role": "user", "content": content},
+            {"role": "user", "content": prompt},
         ],
         stream=False,
     )
@@ -718,11 +816,10 @@ def api_ai_parse_entry():
     mode = request.form.get("mode", "").strip()
     day_id = request.form.get("day_id", "day1").strip() or "day1"
     user_text = request.form.get("text", "").strip()
-    image_file = request.files.get("image")
-    if not user_text and not (image_file and image_file.filename):
-        return jsonify({"ok": False, "error": "请输入文字或上传图片"}), 400
+    if not user_text:
+        return jsonify({"ok": False, "error": "请输入文字"}), 400
     try:
-        operation = model_parse_entry(mode, day_id, user_text, image_file)
+        operation = model_parse_entry(mode, day_id, user_text)
     except Exception as exc:
         return jsonify({"ok": False, "error": f"模型解析失败：{exc}"}), 502
     return jsonify({
@@ -839,6 +936,7 @@ def api_confirm_change():
                 "notes": data.get("notes", "")
             }
             updated.setdefault("bookings", []).append(item)
+            sync_booking_expense(updated, item)
             applied.append(op.get("label", "新增预订"))
         elif op_type == "update_booking":
             booking = next((b for b in updated.get("bookings", []) if b.get("id") == data.get("booking_id")), None)
@@ -849,6 +947,7 @@ def api_confirm_change():
                     booking[key] = normalize_booking_status(value, booking.get("status", "待定"))
                 elif key in {"price", "notes"}:
                     booking[key] = value
+            sync_booking_expense(updated, booking)
             applied.append(op.get("label", "修改预订"))
         elif op_type == "update_supply":
             supply = next((s for s in updated.get("supplies", []) if s.get("id") == data.get("supply_id")), None)
