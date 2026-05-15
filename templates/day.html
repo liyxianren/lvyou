@@ -49,6 +49,12 @@
   </div>
 </section>
 
+{% if day_md %}
+<section class="section markdown-body">
+  {{ day_md|safe }}
+</section>
+{% endif %}
+
 <section class="section">
   <h2>时间线</h2>
   <div class="timeline" data-smart-timeline data-day-date="{{ day.date }}">
@@ -175,12 +181,6 @@
     <p>{{ day.fallback.route }}</p>
     <p>{{ day.fallback.detail }}</p>
   </div>
-</section>
-{% endif %}
-
-{% if day_md %}
-<section class="section markdown-body">
-  {{ day_md|safe }}
 </section>
 {% endif %}
 
