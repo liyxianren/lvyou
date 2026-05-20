@@ -39,6 +39,10 @@
     <strong>¥{{ actual|round(2) }}</strong>
   </div>
   <div class="metric">
+    <span>过路费</span>
+    <strong>{% if day.drive is defined and day.drive.toll_yuan is defined %}¥{{ day.drive.toll_yuan }}{% else %}-{% endif %}</strong>
+  </div>
+  <div class="metric">
     <span>总预算</span>
     <strong>¥{{ trip.meta.total_budget }}</strong>
   </div>
@@ -62,18 +66,62 @@
 
 <section class="section">
   <div class="section-head">
-    <h2>今日时间线</h2>
+    <h2>今日主线</h2>
   </div>
   <div class="timeline" data-smart-timeline data-day-date="{{ day.date }}">
     {% for item in day.timeline %}
-    <article class="timeline-item" data-time="{{ item.time }}" data-title="{{ item.title }}">
-      <time>{{ item.time }}</time>
-      <div>
-        <span class="timeline-status" data-status>待开始</span>
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.detail }}</p>
+    <details class="timeline-item timeline-card" data-time="{{ item.time }}" data-title="{{ item.title }}">
+      <summary class="timeline-summary">
+        <time>{{ item.time }}</time>
+        <div class="timeline-summary-body">
+          <span class="timeline-status" data-status>待开始</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.detail }}</p>
+        </div>
+        <span class="expand-label">展开</span>
+      </summary>
+      <div class="timeline-detail-card">
+        {% if item.route_metrics is defined %}
+        <div class="route-metric-row">
+          {% for metric in item.route_metrics %}
+          <div class="route-metric">
+            <span>{{ metric.label }}</span>
+            <strong>{{ metric.value }}</strong>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% if item.map_link is defined %}
+        <a class="map-link" href="{{ item.map_link.url }}" target="_blank" rel="noopener">{{ item.map_link.label }}</a>
+        {% endif %}
+        {% if item.sections is defined %}
+        <div class="timeline-detail-sections">
+          {% for section in item.sections %}
+          <div class="timeline-detail-section">
+            <h4>{{ section.title }}</h4>
+            {% if section.details is defined %}
+            <ul class="compact-list">
+              {% for detail in section.details %}
+              <li>{{ detail }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+            {% if section.checklist is defined %}
+            <div class="checklist">
+              {% for detail in section.checklist %}
+              <label>
+                <input type="checkbox">
+                <span>{{ detail }}</span>
+              </label>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
       </div>
-    </article>
+    </details>
     {% endfor %}
   </div>
 </section>

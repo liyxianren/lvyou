@@ -22,6 +22,9 @@
       </div>
       <div class="trip-day-actions">
         <span>{{ day.drive.time if day.drive is defined else '待细化' }}</span>
+        {% if day.drive is defined and day.drive.toll_yuan is defined %}
+        <span>过路费 ¥{{ day.drive.toll_yuan }}</span>
+        {% endif %}
         <strong>查看</strong>
       </div>
     </a>

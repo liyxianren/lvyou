@@ -272,15 +272,14 @@ body {
 
 .timeline-item {
   position: relative;
-  display: grid;
-  grid-template-columns: 88px minmax(0, 1fr);
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--line);
+  display: block;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
 }
 
 .timeline-item:last-child {
-  border-bottom: 0;
   padding-bottom: 0;
 }
 
@@ -292,16 +291,16 @@ body {
 }
 
 .timeline-item.is-active {
-  margin: 0 -10px;
-  padding: 12px 10px;
+  margin: 0;
+  padding: 0;
   border: 1px solid rgba(184, 74, 43, 0.35);
   border-radius: 8px;
   background: #fff0e8;
 }
 
 .timeline-item.is-next {
-  margin: 0 -10px;
-  padding: 12px 10px;
+  margin: 0;
+  padding: 0;
   border: 1px solid rgba(23, 107, 91, 0.24);
   border-radius: 8px;
   background: #f2f8f3;
@@ -344,9 +343,124 @@ body {
   font-size: 16px;
 }
 
+.timeline-summary {
+  display: grid;
+  grid-template-columns: 86px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: start;
+  padding: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.timeline-summary::-webkit-details-marker {
+  display: none;
+}
+
+.timeline-summary-body {
+  min-width: 0;
+}
+
+.expand-label {
+  align-self: center;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(23, 107, 91, 0.08);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.timeline-card[open] .expand-label {
+  background: var(--accent);
+  color: #fff;
+}
+
+.timeline-detail-card {
+  display: grid;
+  gap: 12px;
+  padding: 0 12px 14px 108px;
+}
+
+.route-metric-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.route-metric {
+  padding: 10px;
+  border: 1px solid rgba(23, 107, 91, 0.18);
+  border-radius: 8px;
+  background: #f7fbf8;
+}
+
+.route-metric span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.route-metric strong {
+  font-size: 15px;
+}
+
+.timeline-detail-sections {
+  display: grid;
+  gap: 12px;
+}
+
+.timeline-detail-section h4 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.checklist {
+  display: grid;
+  gap: 8px;
+}
+
+.checklist label {
+  display: flex;
+  grid-template-columns: none;
+  gap: 9px;
+  align-items: center;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.checklist input {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  accent-color: var(--accent);
+  flex: 0 0 auto;
+}
+
 .timeline-item p,
 .list-item p {
   margin: 0;
+}
+
+.map-link {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 9px;
+  padding: 7px 11px;
+  border: 1px solid rgba(23, 107, 91, 0.32);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
 }
 
 .compact-list,
@@ -372,6 +486,51 @@ body {
 
 .table-wrap {
   overflow-x: auto;
+}
+
+.budget-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.budget-summary div {
+  padding: 11px;
+  border: 1px solid rgba(23, 107, 91, 0.18);
+  border-radius: 8px;
+  background: #f7fbf8;
+}
+
+.budget-summary span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.budget-summary strong {
+  font-size: 16px;
+}
+
+.budget-type {
+  display: inline-flex;
+  width: fit-content;
+  padding: 3px 7px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.budget-type.fixed {
+  background: rgba(23, 107, 91, 0.12);
+  color: var(--accent);
+}
+
+.budget-type.variable {
+  background: rgba(184, 74, 43, 0.12);
+  color: var(--accent-2);
 }
 
 table {
@@ -418,6 +577,11 @@ details.section summary {
 
 details.section[open] summary {
   margin-bottom: 12px;
+}
+
+.markdown-section {
+  background: #fff;
+  box-shadow: none;
 }
 
 .quick-tags {
@@ -719,8 +883,26 @@ button.secondary {
 }
 
 @media (max-width: 380px) {
-  .timeline-item {
+  .timeline-summary {
     grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  .timeline-detail-card {
+    padding-left: 12px;
+  }
+
+  .expand-label {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 2px;
+  }
+
+  .route-metric-row {
+    grid-template-columns: 1fr;
+  }
+
+  .budget-summary {
+    grid-template-columns: 1fr;
   }
 
   .status-form {

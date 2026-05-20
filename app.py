@@ -107,6 +107,28 @@ def budget_bounds(day):
     }
 
 
+def budget_summary(day):
+    items = day.get("budget", [])
+    fixed = 0
+    variable_min = 0
+    variable_max = 0
+    for item in items:
+        item_min = int(item.get("min", 0))
+        item_max = int(item.get("max", item_min))
+        if item.get("type") == "fixed" or item_min == item_max:
+            fixed += item_min
+        else:
+            variable_min += item_min
+            variable_max += item_max
+    return {
+        "fixed": fixed,
+        "variable_min": variable_min,
+        "variable_max": variable_max,
+        "total_min": fixed + variable_min,
+        "total_max": fixed + variable_max,
+    }
+
+
 def actual_total(trip, day_id=None):
     expenses = trip.get("expenses", [])
     if day_id:
@@ -233,6 +255,7 @@ def day_detail(day_id):
         trip=trip,
         day=day,
         bounds=budget_bounds(day),
+        budget_summary=budget_summary(day),
         actual=actual_total(trip, day_id),
         day_md=day_md,
     )
