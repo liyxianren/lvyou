@@ -5,6 +5,7 @@ import re
 import uuid
 from datetime import datetime
 from pathlib import Path
+from typing import Optional
 
 from dotenv import load_dotenv
 from flask import Flask, jsonify, redirect, render_template, request, url_for
@@ -18,6 +19,18 @@ DATA_PATH = BASE_DIR / "data" / "trip.json"
 CONTENT_DIR = BASE_DIR / "content"
 
 
+def _deploy_release_head() -> Optional[str]:
+    marker_path = BASE_DIR / ".deploy-release"
+    if not marker_path.exists():
+        return None
+
+    for line in marker_path.read_text(encoding="utf-8").splitlines():
+        key, _, value = line.partition("=")
+        if key == "git_sha" and value:
+            return value[:7]
+    return None
+
+
 def _git_head() -> str:
     """Return short git HEAD hash, or 'dev' if not available."""
     try:
@@ -29,7 +42,7 @@ def _git_head() -> str:
             text=True,
         ).strip()
     except Exception:
-        return "dev"
+        return _deploy_release_head() or "dev"
 
 
 def load_day_markdown(day_id):

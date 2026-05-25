@@ -1,0 +1,79 @@
+name: Deploy Lvyou Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-lvyou-production-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  REMOTE_CACHE_DIR: /tmp/lvyou-rsync-cache
+  REMOTE_APP_DIR: /www/wwwroot/ly.scf-stem.com/app
+  SSH_KEEPALIVE_OPTS: -o ServerAliveInterval=30 -o ServerAliveCountMax=6
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Configure SSH
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s' "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p "${{ secrets.DEPLOY_PORT }}" "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Check remote rsync
+        timeout-minutes: 2
+        run: |
+          ssh -p "${{ secrets.DEPLOY_PORT }}" $SSH_KEEPALIVE_OPTS \
+            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+            "command -v rsync >/dev/null && mkdir -p '$REMOTE_CACHE_DIR'"
+
+      - name: Sync repository to remote cache
+        timeout-minutes: 30
+        run: |
+          start="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "Sync started at $start"
+          rsync -az --delete \
+            --delete-excluded \
+            -e "ssh -p ${{ secrets.DEPLOY_PORT }} $SSH_KEEPALIVE_OPTS" \
+            --exclude ".git/" \
+            --exclude ".github/" \
+            --exclude ".agents/" \
+            --exclude ".env" \
+            --exclude ".venv/" \
+            --exclude ".pytest_cache/" \
+            --exclude "__pycache__/" \
+            --exclude ".DS_Store" \
+            ./ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:$REMOTE_CACHE_DIR/"
+          end="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "Sync completed at $end"
+
+      - name: Run production deploy
+        timeout-minutes: 15
+        run: |
+          ssh -p "${{ secrets.DEPLOY_PORT }}" $SSH_KEEPALIVE_OPTS \
+            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+            "install -m 755 '$REMOTE_CACHE_DIR/deploy/bt/deploy-lvyou-bt.sh' /usr/local/bin/deploy-lvyou-bt.sh && \
+             /usr/local/bin/deploy-lvyou-bt.sh '$REMOTE_CACHE_DIR' '${GITHUB_SHA}'"
+
+      - name: Verify deployed release marker
+        timeout-minutes: 2
+        run: |
+          ssh -p "${{ secrets.DEPLOY_PORT }}" $SSH_KEEPALIVE_OPTS \
+            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+            "test -f '$REMOTE_APP_DIR/.deploy-release' && grep -Fx 'git_sha=${GITHUB_SHA}' '$REMOTE_APP_DIR/.deploy-release'"
+
+      - name: Verify public site health
+        timeout-minutes: 2
+        run: |
+          curl -fsSIL --max-time 30 https://ly.scf-stem.com/ >/dev/null
