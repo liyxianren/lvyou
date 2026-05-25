@@ -463,6 +463,13 @@ body {
   text-decoration: none;
 }
 
+.map-link-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
 .compact-list,
 .info-block ul {
   margin: 0;

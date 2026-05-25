@@ -93,6 +93,13 @@
               {% endfor %}
             </ul>
             {% endif %}
+            {% if section.links is defined %}
+            <div class="map-link-grid">
+              {% for link in section.links %}
+              <a class="map-link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+              {% endfor %}
+            </div>
+            {% endif %}
             {% if section.checklist is defined %}
             <div class="checklist">
               {% for detail in section.checklist %}
