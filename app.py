@@ -1,6 +1,7 @@
 import copy
 import json
 import os
+import re
 import uuid
 from datetime import datetime
 from pathlib import Path
@@ -97,6 +98,90 @@ def save_trip(trip):
 
 def get_day(trip, day_id):
     return next((day for day in trip.get("days", []) if day["id"] == day_id), None)
+
+
+def parse_trip_day_date(trip, day):
+    match = re.search(r"(\d{1,2})\s*月\s*(\d{1,2})\s*日", str(day.get("date", "")))
+    if not match:
+        return None
+    year = int(trip.get("meta", {}).get("trip_year", datetime.now().year))
+    return datetime(year, int(match.group(1)), int(match.group(2))).date()
+
+
+def effective_now():
+    date_value = request.args.get("date")
+    time_value = request.args.get("time")
+    now = datetime.now()
+    if date_value:
+        try:
+            now = datetime.fromisoformat(f"{date_value}T00:00:00")
+        except ValueError:
+            now = datetime.now()
+    if time_value:
+        match = re.match(r"^(\d{1,2}):(\d{2})$", time_value)
+        if match:
+            now = now.replace(hour=int(match.group(1)), minute=int(match.group(2)), second=0, microsecond=0)
+    return now
+
+
+def make_prep_day(trip, first_trip_date, now):
+    pending = [item for item in trip.get("supplies", []) if item.get("status") == "待购买"]
+    purchased = [item for item in trip.get("supplies", []) if item.get("status") == "已购买"]
+    days_left = (first_trip_date - now.date()).days if first_trip_date else 0
+    summary = f"距离 Day1 还有 {days_left} 天。今天只看出发准备：证件、穿衣、防晒、车上补给和导航离线化。"
+    if days_left <= 1:
+        summary = "出发前最后检查：证件随身、充电设备满电、离线地图完成，Day1 新天润采购只补车上消耗品。"
+    next_action = "优先勾选身份证、驾驶证/租车订单、防风外套、薄羽绒、防晒、充电宝和离线地图。"
+    if pending:
+        next_action = f"还剩 {len(pending)} 项未完成；下一项先确认：{pending[0].get('name')}。"
+    return {
+        "id": "day0",
+        "day": 0,
+        "date": "出发前",
+        "title": "Day0 出发准备",
+        "route": "两个人 · 6 月北疆自驾 · 行前检查",
+        "summary": summary,
+        "next_action": next_action,
+        "is_prep_day": True,
+        "drive": {"time": "行前准备", "distance_km": 0, "toll_yuan": 0},
+        "risks": [
+            "不要等到 Day1 机场落地后再处理证件、充电、离线地图和保暖层。",
+            "Day1 新天润只做消耗品采购，不承担完整收拾行李的任务。",
+            "赛里木湖和独库早晚风大，6 月也必须带防风和保暖层。",
+        ],
+        "timeline": [
+            {
+                "id": "d0-t1",
+                "time": "现在-出发前",
+                "title": "完成出发准备清单",
+                "detail": f"已完成 {len(purchased)} 项，待完成 {len(pending)} 项。勾选后会永久保存。",
+                "sections": [],
+            }
+        ],
+    }
+
+
+def select_dashboard_day(trip, now):
+    days = trip.get("days", [])
+    dated_days = [(parse_trip_day_date(trip, day), day) for day in days]
+    dated_days = [(date, day) for date, day in dated_days if date]
+    if not dated_days:
+        return get_day(trip, trip["meta"].get("current_day", "day1")) or days[0]
+    dated_days.sort(key=lambda item: item[0])
+    today = now.date()
+    first_date = dated_days[0][0]
+    last_date = dated_days[-1][0]
+    for date, day in dated_days:
+        if date == today:
+            return day
+    if today < first_date:
+        return make_prep_day(trip, first_date, now)
+    if today > last_date:
+        return dated_days[-1][1]
+    for date, day in dated_days:
+        if date > today:
+            return day
+    return dated_days[-1][1]
 
 
 def budget_bounds(day):
@@ -218,7 +303,7 @@ def make_supply(payload):
 
 def dashboard_context():
     trip = load_trip()
-    current_day = get_day(trip, trip["meta"].get("current_day", "day1")) or trip["days"][0]
+    current_day = select_dashboard_day(trip, effective_now())
     bounds = budget_bounds(current_day)
     actual = actual_total(trip, current_day["id"])
     return trip, current_day, bounds, actual

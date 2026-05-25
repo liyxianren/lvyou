@@ -381,6 +381,28 @@ document.querySelectorAll("[data-supply-form]").forEach((form) => {
   });
 });
 
+document.querySelectorAll("[data-supply-toggle]").forEach((input) => {
+  input.addEventListener("change", async () => {
+    const status = input.checked ? "已购买" : "待购买";
+    input.disabled = true;
+    try {
+      await postJson(`/api/supplies/${input.dataset.supplyToggle}`, { status });
+      const card = input.closest(".prep-check");
+      const supplyCard = input.closest(".supply-card");
+      card?.classList.toggle("is-checked", input.checked);
+      supplyCard?.classList.toggle("is-checked", input.checked);
+      const form = document.querySelector(`[data-supply-form="${input.dataset.supplyToggle}"]`);
+      const select = form?.querySelector('select[name="status"]');
+      if (select) select.value = status;
+    } catch (error) {
+      input.checked = !input.checked;
+      alert(error.message);
+    } finally {
+      input.disabled = false;
+    }
+  });
+});
+
 document.querySelectorAll("[data-delete-supply]").forEach((button) => {
   button.addEventListener("click", async () => {
     if (!confirm("删除这个物资？")) return;

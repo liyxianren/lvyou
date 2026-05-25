@@ -1,0 +1,6 @@
+interface:
+  display_name: "Travel Plan Consistency"
+  short_description: "同步校验行程数据、页面和补充文档"
+  default_prompt: "Use $travel-plan-consistency to update itinerary content and verify no stale route text remains."
+policy:
+  allow_implicit_invocation: true

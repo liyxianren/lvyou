@@ -7,7 +7,50 @@
 <section class="hero-panel compact">
   <p class="eyebrow">Itinerary</p>
   <h2>{{ trip.meta.title }}</h2>
-  <p>按天查看路线、时间线、预算、风险和预订入口。</p>
+  <p>日常执行优先看“今日看板”，完整行程页只用于查路线、预算、预订和 Day0 准备。</p>
+  <div class="hero-actions">
+    <a href="{{ url_for('index') }}">回到今日看板</a>
+    <a href="{{ url_for('bookings') }}">预订 / 准备</a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Day0 准备</h2>
+  <details class="timeline-item timeline-card prep-section prep-day0-card">
+    <summary class="timeline-summary">
+      <time>出发前</time>
+      <div class="timeline-summary-body">
+        <span class="timeline-status">Day0</span>
+        <h3>6 月出发准备最终版</h3>
+        <p>两个人 · 北疆自驾 · 证件、分层穿衣、防晒、防风、车上补给。勾选后自动保存。</p>
+      </div>
+      <span class="expand-label">展开</span>
+    </summary>
+    <div class="timeline-detail-card prep-day0-detail">
+      <div class="prep-grid">
+        {% for category, items in trip.supplies|groupby("category") %}
+        <div class="prep-group">
+          <h3>{{ category[3:] if category[:3].strip().isdigit() else category }}</h3>
+          <div class="prep-list">
+            {% for item in items %}
+            <label class="prep-check {{ 'is-checked' if item.status == '已购买' else '' }}">
+              <input
+                type="checkbox"
+                data-supply-toggle="{{ item.id }}"
+                {{ 'checked' if item.status == '已购买' else '' }}
+              >
+              <span>
+                <strong>{{ item.name }}</strong>
+                <small>{{ item.quantity }}</small>
+              </span>
+            </label>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </details>
 </section>
 
 <section class="section">
@@ -19,6 +62,12 @@
         <span class="pill">Day {{ day.day }}</span>
         <h3>{{ day.title }}</h3>
         <p>{{ day.date }} · {{ day.route }}</p>
+        {% if day.summary %}
+        <p class="trip-day-summary">{{ day.summary }}</p>
+        {% endif %}
+        {% if day.next_action %}
+        <p class="trip-day-next">当前执行：{{ day.next_action }}</p>
+        {% endif %}
       </div>
       <div class="trip-day-actions">
         <span>{{ day.drive.time if day.drive is defined else '待细化' }}</span>

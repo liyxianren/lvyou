@@ -441,6 +441,96 @@ body {
   flex: 0 0 auto;
 }
 
+.prep-section {
+  border-color: rgba(23, 107, 91, 0.24);
+  background: linear-gradient(180deg, #ffffff 0%, #f7fbf8 100%);
+}
+
+.prep-day0-card {
+  margin-top: 0;
+}
+
+.prep-day0-card .timeline-summary {
+  background: #fff;
+}
+
+.prep-day0-detail {
+  padding-left: 12px;
+}
+
+.prep-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.prep-group {
+  display: grid;
+  gap: 8px;
+}
+
+.prep-group h3 {
+  margin: 0;
+  color: var(--accent);
+  font-size: 15px;
+}
+
+.prep-list {
+  display: grid;
+  gap: 8px;
+}
+
+.prep-check {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.prep-check.inline {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.prep-check input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--ok);
+}
+
+.prep-check strong,
+.prep-check small {
+  display: block;
+}
+
+.prep-check strong {
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.prep-check small {
+  margin-top: 3px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.prep-check.is-checked,
+.supply-card.is-checked {
+  border-color: rgba(45, 143, 96, 0.35);
+  background: #f1faf4;
+}
+
+.prep-check.is-checked strong {
+  color: var(--ok);
+  text-decoration: line-through;
+}
+
 .timeline-item p,
 .list-item p {
   margin: 0;
@@ -680,6 +770,19 @@ button.secondary {
   margin: 0;
   color: var(--muted);
   line-height: 1.45;
+}
+
+.trip-day-summary {
+  margin-top: 8px !important;
+  color: var(--ink) !important;
+}
+
+.trip-day-next {
+  margin-top: 8px !important;
+  padding-left: 10px;
+  border-left: 3px solid var(--accent);
+  color: var(--accent) !important;
+  font-weight: 800;
 }
 
 .trip-day-actions {

@@ -16,11 +16,54 @@
     <strong data-current-action>{{ day.next_action }}</strong>
   </div>
   <div class="hero-actions">
-    <a href="{{ url_for('itinerary') }}">查看完整行程</a>
+    {% if day.is_prep_day %}
+    <a href="#prep-today">出发准备</a>
+    <a href="{{ url_for('itinerary') }}">完整行程</a>
+    {% else %}
     <a href="{{ url_for('day_detail', day_id=day.id) }}">今日详情</a>
+    <a href="{{ url_for('itinerary') }}">完整行程</a>
+    {% endif %}
   </div>
 </section>
 
+{% if day.is_prep_day %}
+<section class="live-panel prep-live-panel">
+  <div>
+    <span>当前阶段</span>
+    <strong>Day0</strong>
+  </div>
+  <p>出发前只看准备清单。勾选后会写回网站状态，刷新后仍保留。</p>
+</section>
+
+<section class="section" id="prep-today">
+  <div class="section-head">
+    <h2>今日要完成</h2>
+    <span class="subtle">出发准备</span>
+  </div>
+  <div class="prep-grid">
+    {% for category, items in trip.supplies|groupby("category") %}
+    <div class="prep-group">
+      <h3>{{ category[3:] if category[:3].strip().isdigit() else category }}</h3>
+      <div class="prep-list">
+        {% for item in items %}
+        <label class="prep-check {{ 'is-checked' if item.status == '已购买' else '' }}">
+          <input
+            type="checkbox"
+            data-supply-toggle="{{ item.id }}"
+            {{ 'checked' if item.status == '已购买' else '' }}
+          >
+          <span>
+            <strong>{{ item.name }}</strong>
+            <small>{{ item.quantity }}</small>
+          </span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% else %}
 <section class="live-panel" data-live-panel data-day-date="{{ day.date }}">
   <div>
     <span>当前时间</span>
@@ -132,4 +175,5 @@
     {% endfor %}
   </div>
 </section>
+{% endif %}
 {% endblock %}

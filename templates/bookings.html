@@ -130,28 +130,44 @@
 
 <section class="section">
   <div class="section-head">
-    <h2>全局补给</h2>
-    <span class="subtle">不按天过滤</span>
+    <div>
+      <h2>6 月出发准备最终版</h2>
+      <p class="muted">两个人 · 勾选会写回网站状态，刷新后仍保留。</p>
+    </div>
+    <span class="subtle">全局补给</span>
   </div>
-  <div class="item-list">
-    {% for item in trip.supplies %}
-    <article class="list-item">
-      <div>
-        <span class="pill">{{ item.category }}</span>
-        <h3>{{ item.name }}</h3>
-        <p>{{ item.quantity }}</p>
+  <div class="prep-grid">
+    {% for category, items in trip.supplies|groupby("category") %}
+    <div class="prep-group">
+      <h3>{{ category[3:] if category[:3].strip().isdigit() else category }}</h3>
+      <div class="item-list">
+        {% for item in items %}
+        <article class="list-item supply-card {{ 'is-checked' if item.status == '已购买' else '' }}">
+          <label class="prep-check inline">
+            <input
+              type="checkbox"
+              data-supply-toggle="{{ item.id }}"
+              {{ 'checked' if item.status == '已购买' else '' }}
+            >
+            <span>
+              <strong>{{ item.name }}</strong>
+              <small>{{ item.quantity }}</small>
+            </span>
+          </label>
+          <form class="status-form" data-supply-form="{{ item.id }}">
+            <select name="status">
+              {% for status in ["待购买", "已购买", "不买", "备用"] %}
+              <option value="{{ status }}" {{ 'selected' if status == item.status else '' }}>{{ status }}</option>
+              {% endfor %}
+            </select>
+            <input name="quantity" value="{{ item.quantity }}">
+            <button type="submit">保存</button>
+            <button type="button" class="danger" data-delete-supply="{{ item.id }}">删除</button>
+          </form>
+        </article>
+        {% endfor %}
       </div>
-      <form class="status-form" data-supply-form="{{ item.id }}">
-        <select name="status">
-          {% for status in ["待购买", "已购买", "不买", "备用"] %}
-          <option value="{{ status }}" {{ 'selected' if status == item.status else '' }}>{{ status }}</option>
-          {% endfor %}
-        </select>
-        <input name="quantity" value="{{ item.quantity }}">
-        <button type="submit">保存</button>
-        <button type="button" class="danger" data-delete-supply="{{ item.id }}">删除</button>
-      </form>
-    </article>
+    </div>
     {% endfor %}
   </div>
 </section>
