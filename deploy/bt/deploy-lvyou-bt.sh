@@ -182,7 +182,7 @@ chown -R www:www "$release_dir"
 source "$VENV_PATH/bin/activate"
 cd "$release_dir"
 python -m pip install -r requirements.txt
-pytest -q
+PYTHONPATH="$release_dir" python -m pytest -q
 
 systemctl stop "$SERVICE_NAME"
 
