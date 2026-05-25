@@ -182,7 +182,11 @@ chown -R www:www "$release_dir"
 source "$VENV_PATH/bin/activate"
 cd "$release_dir"
 python -m pip install -r requirements.txt
-PYTHONPATH="$release_dir" python -m pytest -q
+if command -v node >/dev/null; then
+  PYTHONPATH="$release_dir" python -m pytest -q
+else
+  PYTHONPATH="$release_dir" python -m pytest -q --ignore=tests/test_model_preview_format.py
+fi
 
 systemctl stop "$SERVICE_NAME"
 
