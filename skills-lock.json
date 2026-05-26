@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "bmap-jsapi-gl": {
+      "source": "baidu-maps/jsapi-skills",
+      "sourceType": "github",
+      "skillPath": "skills/bmap-jsapi-gl/SKILL.md",
+      "computedHash": "a57e108d8ec0bf60bcd189b2dc3f8c15ccf946cc47d8f20fa129d726c8ccb42a"
+    },
+    "bmap-jsapi-three": {
+      "source": "baidu-maps/jsapi-skills",
+      "sourceType": "github",
+      "skillPath": "skills/bmap-jsapi-three/SKILL.md",
+      "computedHash": "614a7dbe4752f9f2b9eb4c1f015b7646f1db6dbf25c69b9450dc59c79b88f88e"
+    },
+    "jsapi-ui-kit": {
+      "source": "baidu-maps/jsapi-skills",
+      "sourceType": "github",
+      "skillPath": "skills/jsapi-ui-kit/SKILL.md",
+      "computedHash": "80e8b41bfcc3392b5fc2e41feed132fe49e29ce8332fb70a3f58c68f11562ac7"
+    }
+  }
+}

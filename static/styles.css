@@ -553,11 +553,105 @@ body {
   text-decoration: none;
 }
 
+.map-link-primary {
+  flex: 0 0 auto;
+  min-width: 168px;
+  padding-inline: 14px;
+  background: var(--accent);
+  color: #fff !important;
+  white-space: nowrap;
+}
+
 .map-link-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 10px;
+}
+
+.route-overview {
+  display: grid;
+  gap: 12px;
+}
+
+.route-overview-head {
+  align-items: start;
+}
+
+.route-overview-head p {
+  margin: 6px 0 0;
+}
+
+.route-overview-metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.route-subtitle {
+  margin: 0;
+  font-size: 15px;
+}
+
+.route-stop-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: route-stop;
+}
+
+.route-stop-list li {
+  position: relative;
+  min-height: 86px;
+  padding: 12px 10px 10px;
+  border: 1px solid rgba(23, 107, 91, 0.18);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.route-stop-list li::before {
+  counter-increment: route-stop;
+  content: counter(route-stop);
+  display: inline-grid;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 8px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.route-stop-list span,
+.route-stop-list strong {
+  display: block;
+}
+
+.route-stop-list span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.route-stop-list strong {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.route-map-frame {
+  width: 100%;
+  height: clamp(360px, 62vh, 600px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.route-overview-notes {
+  margin-top: 0;
 }
 
 .compact-list,
@@ -992,6 +1086,30 @@ button.secondary {
   }
 }
 
+@media (max-width: 680px) {
+  .route-overview-head {
+    display: grid;
+    justify-content: stretch;
+  }
+
+  .route-overview-head .map-link {
+    width: 100%;
+  }
+
+  .route-overview-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .route-stop-list {
+    grid-template-columns: 1fr;
+  }
+
+  .route-stop-list li {
+    min-height: auto;
+  }
+
+}
+
 @media (max-width: 380px) {
   .timeline-summary {
     grid-template-columns: 72px minmax(0, 1fr);
@@ -1008,6 +1126,10 @@ button.secondary {
   }
 
   .route-metric-row {
+    grid-template-columns: 1fr;
+  }
+
+  .route-overview-metrics {
     grid-template-columns: 1fr;
   }
 

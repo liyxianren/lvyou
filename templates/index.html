@@ -64,6 +64,51 @@
   </div>
 </section>
 {% else %}
+{% if day.overview_map is defined %}
+<section class="section route-overview" id="day-route-map">
+  <div class="section-head route-overview-head">
+    <div>
+      <h2>{{ day.overview_map.title }}</h2>
+      {% if day.overview_map.summary is defined %}
+      <p>{{ day.overview_map.summary }}</p>
+      {% endif %}
+    </div>
+    <a class="map-link map-link-primary" href="{{ day.overview_map.url }}" target="_blank" rel="noopener">{{ day.overview_map.action_label }}</a>
+  </div>
+  {% if day.overview_map.route_metrics is defined %}
+  <div class="route-metric-row route-overview-metrics">
+    {% for metric in day.overview_map.route_metrics %}
+    <div class="route-metric">
+      <span>{{ metric.label }}</span>
+      <strong>{{ metric.value }}</strong>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% if day.overview_map.embed_url is defined %}
+  <iframe class="route-map-frame" title="{{ day.overview_map.title }}" src="{{ day.overview_map.embed_url }}" loading="lazy"></iframe>
+  {% endif %}
+  {% if day.overview_map.stops is defined %}
+  <h3 class="route-subtitle">百度路线顺序 / 途经点</h3>
+  <ol class="route-stop-list">
+    {% for stop in day.overview_map.stops %}
+    <li>
+      <span>{{ stop.label }}</span>
+      <strong>{{ stop.name }}</strong>
+    </li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+  {% if day.overview_map.notes is defined %}
+  <ul class="compact-list route-overview-notes">
+    {% for note in day.overview_map.notes %}
+    <li>{{ note }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+{% endif %}
+
 <section class="live-panel" data-live-panel data-day-date="{{ day.date }}">
   <div>
     <span>当前时间</span>

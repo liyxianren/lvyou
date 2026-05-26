@@ -10,6 +10,7 @@ def run_node(script: str) -> str:
         ["node", "-e", script],
         cwd=APP_JS.parents[1],
         text=True,
+        encoding="utf-8",
         capture_output=True,
         check=True,
     )
