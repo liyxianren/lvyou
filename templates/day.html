@@ -22,7 +22,14 @@
       <p>{{ day.overview_map.summary }}</p>
       {% endif %}
     </div>
-    <a class="map-link map-link-primary" href="{{ day.overview_map.url }}" target="_blank" rel="noopener">{{ day.overview_map.action_label }}</a>
+    <div class="map-link-grid">
+      <a class="map-link map-link-primary" href="{{ day.overview_map.url }}" target="_blank" rel="noopener">{{ day.overview_map.action_label }}</a>
+      {% if day.overview_map.secondary_links is defined %}
+        {% for link in day.overview_map.secondary_links %}
+        <a class="map-link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+        {% endfor %}
+      {% endif %}
+    </div>
   </div>
   {% if day.overview_map.route_metrics is defined %}
   <div class="route-metric-row route-overview-metrics">

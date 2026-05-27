@@ -578,6 +578,11 @@ body {
   align-items: start;
 }
 
+.route-overview-head .map-link-grid {
+  justify-content: flex-end;
+  margin-top: 0;
+}
+
 .route-overview-head p {
   margin: 6px 0 0;
 }
@@ -1089,6 +1094,10 @@ button.secondary {
 @media (max-width: 680px) {
   .route-overview-head {
     display: grid;
+    justify-content: stretch;
+  }
+
+  .route-overview-head .map-link-grid {
     justify-content: stretch;
   }
 
