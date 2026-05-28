@@ -102,7 +102,7 @@ if (!text.includes('预订ID：booking-1')) throw new Error(text);
 if (!text.includes('状态：已确认')) throw new Error(text);
 if (!text.includes('物资ID：s-1')) throw new Error(text);
 if (!text.includes('数量：0')) throw new Error(text);
-if (!text.includes('字段：next_action')) throw new Error(text);
+if (!text.includes('项目：next_action')) throw new Error(text);
 if (!text.includes('内容：先去酒店办理入住')) throw new Error(text);
 if (text.includes('{') || text.includes('"changes"')) throw new Error(text);
 console.log(text);

@@ -5,9 +5,9 @@
 
 {% block content %}
 <section class="hero-panel compact">
-  <p class="eyebrow">Itinerary</p>
+  <p class="eyebrow">完整路线</p>
   <h2>{{ trip.meta.title }}</h2>
-  <p>日常执行优先看“今日看板”，完整行程页只用于查路线、预算、预订和 Day0 准备。</p>
+  <p>路上优先看“今日看板”；这里集中查看每天路线、预算、预订和出发前准备。</p>
   <div class="hero-actions">
     <a href="{{ url_for('index') }}">回到今日看板</a>
     <a href="{{ url_for('bookings') }}">预订 / 准备</a>
@@ -22,7 +22,7 @@
       <div class="timeline-summary-body">
         <span class="timeline-status">Day0</span>
         <h3>6 月出发准备最终版</h3>
-        <p>两个人 · 北疆自驾 · 证件、分层穿衣、防晒、防风、车上补给。勾选后自动保存。</p>
+        <p>两个人 · 北疆自驾 · 证件、分层穿衣、防晒、防风、车上补给。勾选后会自动保存。</p>
       </div>
       <span class="expand-label">展开</span>
     </summary>
@@ -66,7 +66,7 @@
         <p class="trip-day-summary">{{ day.summary }}</p>
         {% endif %}
         {% if day.next_action %}
-        <p class="trip-day-next">当前执行：{{ day.next_action }}</p>
+        <p class="trip-day-next">出行提醒：{{ day.next_action }}</p>
         {% endif %}
       </div>
       <div class="trip-day-actions">

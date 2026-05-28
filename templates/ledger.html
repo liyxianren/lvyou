@@ -5,7 +5,7 @@
 
 {% block content %}
 <section class="hero-panel compact">
-  <p class="eyebrow">Day Ledger</p>
+  <p class="eyebrow">旅行账本</p>
   <h2>¥{{ selected_actual|round(2) }}</h2>
   <p>{{ selected_day.date if selected_day else selected_day_id }} 已记录。全程累计 ¥{{ total_actual|round(2) }}。</p>
 </section>
@@ -20,7 +20,7 @@
 </section>
 
 <section class="section">
-  <h2>模型记账</h2>
+  <h2>快速记账</h2>
   <form class="model-entry-form" data-model-entry-form data-mode="expense">
     <label>
       日期
@@ -31,20 +31,20 @@
       </select>
     </label>
     <label>
-      文字
+      描述
       <textarea name="text" rows="3" placeholder="例如：过路费200；午餐巴扎屋168；加油 260"></textarea>
     </label>
-    <button type="submit">解析账单</button>
+    <button type="submit">生成账单记录</button>
   </form>
   <div class="proposal-box model-proposal" data-model-proposal hidden></div>
   <div class="action-row" data-model-actions hidden>
-    <button type="button" data-confirm-model-proposal>确认写入</button>
+    <button type="button" data-confirm-model-proposal>保存记录</button>
     <button type="button" class="secondary" data-clear-model-proposal>取消</button>
   </div>
 </section>
 
 <details class="section">
-  <summary>手动备用录入</summary>
+  <summary>手动记账</summary>
   <div class="quick-tags" data-expense-tags>
     <button type="button" data-category="午餐" data-title="午餐">午餐</button>
     <button type="button" data-category="晚餐" data-title="晚餐">晚餐</button>

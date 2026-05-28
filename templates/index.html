@@ -32,7 +32,7 @@
     <span>当前阶段</span>
     <strong>Day0</strong>
   </div>
-  <p>出发前只看准备清单。勾选后会写回网站状态，刷新后仍保留。</p>
+  <p>出发前只看准备清单。勾选后会自动保存，刷新后仍保留。</p>
 </section>
 
 <section class="section" id="prep-today">
@@ -96,7 +96,7 @@
   <iframe class="route-map-frame" title="{{ day.overview_map.title }}" src="{{ day.overview_map.embed_url }}" loading="lazy"></iframe>
   {% endif %}
   {% if day.overview_map.stops is defined %}
-  <h3 class="route-subtitle">百度路线顺序 / 途经点</h3>
+  <h3 class="route-subtitle">当天导航顺序</h3>
   <ol class="route-stop-list">
     {% for stop in day.overview_map.stops %}
     <li>

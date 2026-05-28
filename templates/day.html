@@ -45,7 +45,7 @@
   <iframe class="route-map-frame" title="{{ day.overview_map.title }}" src="{{ day.overview_map.embed_url }}" loading="lazy"></iframe>
   {% endif %}
   {% if day.overview_map.stops is defined %}
-  <h3 class="route-subtitle">百度路线顺序 / 途经点</h3>
+  <h3 class="route-subtitle">当天导航顺序</h3>
   <ol class="route-stop-list">
     {% for stop in day.overview_map.stops %}
     <li>
@@ -351,7 +351,7 @@
 
 {% if day_md and not day.suppress_markdown %}
 <details class="section markdown-section">
-  <summary>补充执行说明</summary>
+  <summary>补充攻略</summary>
   <div class="markdown-body">
     {{ day_md|safe }}
   </div>

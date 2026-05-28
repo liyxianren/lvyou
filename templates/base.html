@@ -6,14 +6,14 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>{% block title %}旅行执行{% endblock %}</title>
+  <title>{% block title %}北疆自驾攻略{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v={{ static_version }}">
 </head>
 <body data-trip-year="{{ trip.meta.trip_year if trip is defined and trip.meta.trip_year is defined else 2026 }}">
   <header class="topbar">
     <div>
-      <p class="eyebrow">Travel Ops</p>
-      <h1>{% block heading %}新疆旅行执行{% endblock %}</h1>
+      <p class="eyebrow">新疆自驾</p>
+      <h1>{% block heading %}北疆自驾行程{% endblock %}</h1>
     </div>
   </header>
 
@@ -26,7 +26,6 @@
     <a href="{{ url_for('itinerary') }}" class="{{ 'active' if request.endpoint in ['itinerary', 'day_detail'] else '' }}">行程</a>
     <a href="{{ url_for('ledger') }}" class="{{ 'active' if request.endpoint == 'ledger' else '' }}">账本</a>
     <a href="{{ url_for('bookings') }}" class="{{ 'active' if request.endpoint == 'bookings' else '' }}">预订</a>
-    <a href="{{ url_for('assistant') }}" class="{{ 'active' if request.endpoint == 'assistant' else '' }}">AI</a>
   </nav>
 
   <script src="{{ url_for('static', filename='app.js') }}"></script>

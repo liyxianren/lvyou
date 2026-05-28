@@ -182,7 +182,7 @@ function formatCurrency(value) {
 
 function formatModelOperationPreview(operation, index) {
   const payload = operation.payload || {};
-  const lines = [`${index + 1}. ${operation.label || "待确认记录"}`];
+  const lines = [`${index + 1}. ${operation.label || "待保存记录"}`];
 
   if (operation.type === "add_expense") {
     lines.push(`日期：${payload.day_id || "未指定"}`);
@@ -209,13 +209,13 @@ function formatModelOperationPreview(operation, index) {
     if (changes.notes) lines.push(`备注：${changes.notes}`);
   } else if (operation.type === "update_itinerary") {
     lines.push(`日期：${payload.day_id || "未指定"}`);
-    lines.push(`字段：${payload.field || "未指定"}`);
+    lines.push(`项目：${payload.field || "未指定"}`);
     if (payload.value) lines.push(`内容：${payload.value}`);
     if (payload.title) lines.push(`标题：${payload.title}`);
     if (payload.time) lines.push(`时间：${payload.time}`);
     if (payload.detail) lines.push(`详情：${payload.detail}`);
   } else {
-    lines.push(operation.label || "待确认修改");
+    lines.push(operation.label || "待保存调整");
   }
 
   if (payload.notes) lines.push(`备注：${payload.notes}`);
@@ -256,7 +256,7 @@ document.querySelector("[data-model-entry-form]")?.addEventListener("submit", as
   formData.append("mode", form.dataset.mode);
   box.hidden = false;
   actions.hidden = true;
-  box.textContent = "正在调用模型解析...";
+  box.textContent = "正在整理记录...";
   pendingProposal = null;
 
   try {
@@ -276,7 +276,7 @@ document.querySelector("[data-model-entry-form]")?.addEventListener("submit", as
 
 document.querySelector("[data-confirm-model-proposal]")?.addEventListener("click", async () => {
   if (!pendingProposal || !pendingProposal.operations?.length) {
-    alert("没有可确认的解析结果。");
+    alert("还没有可保存的记录。");
     return;
   }
   try {
@@ -445,7 +445,7 @@ document.querySelector("[data-ai-form]")?.addEventListener("submit", async (even
 
 document.querySelector("[data-confirm-proposal]")?.addEventListener("click", async () => {
   if (!pendingProposal || !pendingProposal.operations?.length) {
-    alert("没有可确认的修改。");
+    alert("还没有可保存的调整。");
     return;
   }
   try {
