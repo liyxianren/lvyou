@@ -65,6 +65,8 @@
 </section>
 {% endif %}
 
+{% include "plan_options.html" %}
+
 <section class="day-switcher" aria-label="选择行程日">
   {% for item in trip.days %}
   <a href="{{ url_for('day_detail', day_id=item.id) }}" class="{{ 'active' if item.id == day.id else '' }}">

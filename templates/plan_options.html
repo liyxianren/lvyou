@@ -1,0 +1,86 @@
+{% if day.plan_options is defined %}
+<section class="section plan-options" id="plan-options">
+  <div class="section-head plan-options-head">
+    <div>
+      <h2>{{ day.plan_options.title }}</h2>
+      {% if day.plan_options.summary is defined %}
+      <p>{{ day.plan_options.summary }}</p>
+      {% endif %}
+    </div>
+    {% if day.plan_options.decision_rule is defined %}
+    <span class="subtle">{{ day.plan_options.decision_rule }}</span>
+    {% endif %}
+  </div>
+  <div class="plan-option-grid">
+    {% for option in day.plan_options.options %}
+    <article class="plan-option-card">
+      <div class="plan-option-head">
+        <span class="plan-label">{{ option.label }}</span>
+        {% if option.status is defined %}
+        <span class="plan-status">{{ option.status }}</span>
+        {% endif %}
+      </div>
+      <h3>{{ option.name }}</h3>
+      <p>{{ option.route }}</p>
+
+      {% if option.route_metrics is defined %}
+      <div class="route-metric-row">
+        {% for metric in option.route_metrics %}
+        <div class="route-metric">
+          <span>{{ metric.label }}</span>
+          <strong>{{ metric.value }}</strong>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if option.steps is defined %}
+      <ol class="plan-step-list">
+        {% for step in option.steps %}
+        <li>{{ step }}</li>
+        {% endfor %}
+      </ol>
+      {% endif %}
+
+      <div class="plan-option-detail-grid">
+        {% if option.best_for is defined %}
+        <div>
+          <h4>适合什么情况</h4>
+          <ul class="compact-list">
+            {% for item in option.best_for %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        {% if option.watch is defined %}
+        <div>
+          <h4>注意事项</h4>
+          <ul class="compact-list">
+            {% for item in option.watch %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+
+      {% if option.map_links is defined %}
+      <div class="map-link-grid">
+        {% for link in option.map_links %}
+        <a class="map-link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+  {% if day.plan_options.notes is defined %}
+  <ul class="compact-list plan-option-notes">
+    {% for note in day.plan_options.notes %}
+    <li>{{ note }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+{% endif %}

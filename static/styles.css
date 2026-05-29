@@ -408,6 +408,94 @@ body {
   font-size: 15px;
 }
 
+.plan-options {
+  display: grid;
+  gap: 14px;
+}
+
+.plan-options-head {
+  align-items: start;
+}
+
+.plan-option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.plan-option-card {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.plan-option-head {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plan-label,
+.plan-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.plan-label {
+  background: var(--accent);
+  color: #fff;
+}
+
+.plan-status {
+  background: #eee5d7;
+  color: var(--muted);
+}
+
+.plan-option-card h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.plan-option-card p {
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.plan-step-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.plan-step-list li {
+  margin: 7px 0;
+  line-height: 1.45;
+}
+
+.plan-option-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.plan-option-detail-grid h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.plan-option-notes {
+  padding-top: 2px;
+}
+
 .timeline-detail-sections {
   display: grid;
   gap: 12px;
@@ -1092,6 +1180,17 @@ button.secondary {
 }
 
 @media (max-width: 680px) {
+  .plan-option-grid,
+  .plan-option-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-options-head {
+    display: grid;
+    gap: 8px;
+    justify-content: stretch;
+  }
+
   .route-overview-head {
     display: grid;
     justify-content: stretch;
