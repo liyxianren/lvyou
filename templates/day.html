@@ -5,6 +5,15 @@
 
 {% block content %}
 {% set visual_page = day.visual_page|default({}) %}
+<section class="day-switcher day-switcher-top" aria-label="选择行程日">
+  {% for item in trip.days %}
+  <a href="{{ url_for('day_detail', day_id=item.id) }}" class="{{ 'active' if item.id == day.id else '' }}">
+    <strong>Day {{ item.day }}</strong>
+    <span>{{ item.date }}</span>
+  </a>
+  {% endfor %}
+</section>
+
 <section class="hero-panel{% if visual_page.get('compact_hero') %} compact day-visual-hero{% endif %}">
   <div class="day-meta">
     <span>{{ day.date }}</span>
@@ -77,15 +86,6 @@
 {% endif %}
 
 {% include "plan_options.html" %}
-
-<section class="day-switcher" aria-label="选择行程日">
-  {% for item in trip.days %}
-  <a href="{{ url_for('day_detail', day_id=item.id) }}" class="{{ 'active' if item.id == day.id else '' }}">
-    <strong>Day {{ item.day }}</strong>
-    <span>{{ item.date }}</span>
-  </a>
-  {% endfor %}
-</section>
 
 {% if not visual_page.get('hide_live_panel') %}
 <section class="live-panel" data-live-panel data-day-date="{{ day.date }}">

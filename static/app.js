@@ -158,12 +158,9 @@ function pickGuidePointByTime(root, now) {
   if (!buttons.length) return null;
 
   const dayDate = parseDayDate(root.dataset.guideDayDate);
-  const followClock = root.dataset.guideFollowClock === "true";
-  const params = new URLSearchParams(window.location.search);
-  const hasTimeOverride = params.has("time");
   const starts = buttons.map((button) => parseTimeToMinutes(button.dataset.guideTime));
   const ranges = buttons.map((button, index) => parseTimeRange(button.dataset.guideTime, starts[index + 1]));
-  const useClock = followClock || !dayDate || sameLocalDay(now, dayDate) || hasTimeOverride;
+  const useClock = !dayDate || sameLocalDay(now, dayDate);
 
   if (!useClock) {
     const diff = dayDiff(now, dayDate);
