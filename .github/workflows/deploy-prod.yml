@@ -14,7 +14,7 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
   REMOTE_CACHE_DIR: /tmp/lvyou-rsync-cache
   REMOTE_APP_DIR: /www/wwwroot/ly.scf-stem.com/app
-  SSH_KEEPALIVE_OPTS: -o ServerAliveInterval=30 -o ServerAliveCountMax=6
+  SSH_KEEPALIVE_OPTS: -o ConnectTimeout=20 -o ConnectionAttempts=3 -o ServerAliveInterval=30 -o ServerAliveCountMax=6
 
 jobs:
   deploy:
@@ -45,43 +45,85 @@ jobs:
       - name: Check remote rsync
         timeout-minutes: 2
         run: |
-          ssh -p "${{ secrets.DEPLOY_PORT }}" $SSH_KEEPALIVE_OPTS \
-            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+          retry_ssh() {
+            local attempt status
+            for attempt in 1 2 3 4 5; do
+              ssh -p "${{ secrets.DEPLOY_PORT }}" $SSH_KEEPALIVE_OPTS "$@" && return 0
+              status=$?
+              echo "SSH attempt ${attempt}/5 failed with exit ${status}."
+              [ "$attempt" = "5" ] || sleep $((attempt * 10))
+            done
+            return "$status"
+          }
+
+          retry_ssh "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
             "command -v rsync >/dev/null && mkdir -p '$REMOTE_CACHE_DIR'"
 
       - name: Sync repository to remote cache
         timeout-minutes: 30
         run: |
-          start="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          echo "Sync started at $start"
-          rsync -az --delete \
-            --delete-excluded \
-            -e "ssh -p ${{ secrets.DEPLOY_PORT }} $SSH_KEEPALIVE_OPTS" \
-            --exclude ".git/" \
-            --exclude ".github/" \
-            --exclude ".agents/" \
-            --exclude ".env" \
-            --exclude ".venv/" \
-            --exclude ".pytest_cache/" \
-            --exclude "__pycache__/" \
-            --exclude ".DS_Store" \
-            ./ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:$REMOTE_CACHE_DIR/"
-          end="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          echo "Sync completed at $end"
+          status=0
+          for attempt in 1 2 3; do
+            start="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "Sync attempt ${attempt}/3 started at $start"
+            if rsync -az --delete \
+              --delete-excluded \
+              --timeout=120 \
+              --contimeout=30 \
+              --info=stats2 \
+              -e "ssh -p ${{ secrets.DEPLOY_PORT }} $SSH_KEEPALIVE_OPTS" \
+              --exclude ".git/" \
+              --exclude ".github/" \
+              --exclude ".agents/" \
+              --exclude ".env" \
+              --exclude ".venv/" \
+              --exclude ".pytest_cache/" \
+              --exclude "__pycache__/" \
+              --exclude ".DS_Store" \
+              ./ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:$REMOTE_CACHE_DIR/"; then
+              end="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+              echo "Sync completed at $end"
+              exit 0
+            fi
+            status=$?
+            echo "Sync attempt ${attempt}/3 failed with exit ${status}."
+            [ "$attempt" = "3" ] || sleep $((attempt * 15))
+          done
+          exit "$status"
 
       - name: Run production deploy
         timeout-minutes: 15
         run: |
-          ssh -p "${{ secrets.DEPLOY_PORT }}" $SSH_KEEPALIVE_OPTS \
-            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+          retry_ssh() {
+            local attempt status
+            for attempt in 1 2 3 4 5; do
+              ssh -p "${{ secrets.DEPLOY_PORT }}" $SSH_KEEPALIVE_OPTS "$@" && return 0
+              status=$?
+              echo "SSH attempt ${attempt}/5 failed with exit ${status}."
+              [ "$attempt" = "5" ] || sleep $((attempt * 10))
+            done
+            return "$status"
+          }
+
+          retry_ssh "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
             "install -m 755 '$REMOTE_CACHE_DIR/deploy/bt/deploy-lvyou-bt.sh' /usr/local/bin/deploy-lvyou-bt.sh && \
              /usr/local/bin/deploy-lvyou-bt.sh '$REMOTE_CACHE_DIR' '${GITHUB_SHA}'"
 
       - name: Verify deployed release marker
         timeout-minutes: 2
         run: |
-          ssh -p "${{ secrets.DEPLOY_PORT }}" $SSH_KEEPALIVE_OPTS \
-            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+          retry_ssh() {
+            local attempt status
+            for attempt in 1 2 3 4 5; do
+              ssh -p "${{ secrets.DEPLOY_PORT }}" $SSH_KEEPALIVE_OPTS "$@" && return 0
+              status=$?
+              echo "SSH attempt ${attempt}/5 failed with exit ${status}."
+              [ "$attempt" = "5" ] || sleep $((attempt * 10))
+            done
+            return "$status"
+          }
+
+          retry_ssh "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
             "test -f '$REMOTE_APP_DIR/.deploy-release' && grep -Fx 'git_sha=${GITHUB_SHA}' '$REMOTE_APP_DIR/.deploy-release'"
 
       - name: Verify public site health

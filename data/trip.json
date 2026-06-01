@@ -32,7 +32,7 @@
         "kicker": "Q版地图",
         "title": "Day1 手绘路线攻略",
         "summary": "点位已经贴到图上的路线节点。点一下编号，看当天该点真正要做的事。",
-        "image_src": "/static/day1-route-map-clean.png",
+        "image_src": "/static/day1-route-map-clean.jpg",
         "image_alt": "Day1 乌鲁木齐机场到精河的 Q 版手绘路线地图",
         "points": [
           {
