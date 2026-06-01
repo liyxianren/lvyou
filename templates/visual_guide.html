@@ -1,13 +1,27 @@
-<section class="section visual-guide" data-visual-guide>
+<section
+  class="section visual-guide"
+  data-visual-guide
+  data-guide-day-date="{{ guide_day.date if guide_day is defined else '' }}"
+  data-guide-follow-clock="{{ 'true' if guide.follow_clock is defined and guide.follow_clock else 'false' }}"
+>
   <div class="section-head visual-guide-head">
     <div>
       <span class="visual-guide-kicker">{{ guide.kicker }}</span>
       <h2>{{ guide.title }}</h2>
       <p>{{ guide.summary }}</p>
     </div>
-    {% if guide_day is defined %}
+    <div class="visual-guide-actions">
+    {% if guide.nav_url is defined %}
+    <a class="map-link map-link-primary" href="{{ guide.nav_url }}" target="_blank" rel="noopener">{{ guide.nav_label|default("打开百度地图") }}</a>
+    {% endif %}
+    {% if guide_day is defined and not guide_hide_day_link|default(false) %}
     <a class="map-link" href="{{ url_for('day_detail', day_id=guide_day.id) }}">Day {{ guide_day.day }} 详情</a>
     {% endif %}
+    </div>
+  </div>
+  <div class="visual-guide-live">
+    <span data-visual-live-clock>--:--</span>
+    <strong data-visual-live-summary>正在匹配当前点位...</strong>
   </div>
   <div class="visual-guide-layout">
     <div class="visual-guide-map" aria-label="{{ guide.title }}">
@@ -18,6 +32,9 @@
         class="visual-guide-point-card"
         type="button"
         data-guide-point="{{ point.id }}"
+        data-guide-time="{{ point.time }}"
+        data-guide-title="{{ point.title }}"
+        aria-controls="guide-detail-{{ point.id }}"
         aria-pressed="{{ 'true' if loop.first else 'false' }}"
         style="--point-x: {{ point.x }}%; --point-y: {{ point.y }}%;"
       >
@@ -30,15 +47,61 @@
     </div>
     <div class="visual-guide-detail-stack">
       {% for point in guide.points %}
-      <article class="visual-guide-detail" data-guide-detail="{{ point.id }}" {% if not loop.first %}hidden{% endif %}>
-        <span>{{ point.time }}</span>
+      <article class="visual-guide-detail" id="guide-detail-{{ point.id }}" data-guide-detail="{{ point.id }}" data-guide-time="{{ point.time }}" {% if not loop.first %}hidden{% endif %}>
+        <div class="visual-guide-detail-meta">
+          <span>{{ point.time }}</span>
+          <strong data-guide-status>待开始</strong>
+        </div>
         <h3>{{ point.title }}</h3>
         <p>{{ point.description }}</p>
+        {% if point.route_metrics is defined %}
+        <div class="route-metric-row visual-guide-mini-metrics">
+          {% for metric in point.route_metrics %}
+          <div class="route-metric">
+            <span>{{ metric.label }}</span>
+            <strong>{{ metric.value }}</strong>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
         <ul class="compact-list">
           {% for item in point.details %}
           <li>{{ item }}</li>
           {% endfor %}
         </ul>
+        {% if point.sections is defined %}
+        <div class="visual-guide-sections">
+          {% for section in point.sections %}
+          <div class="visual-guide-section">
+            <h4>{{ section.title }}</h4>
+            {% if section.details is defined %}
+            <ul class="compact-list">
+              {% for detail in section.details %}
+              <li>{{ detail }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+            {% if section.checklist is defined %}
+            <div class="checklist visual-guide-checklist">
+              {% for detail in section.checklist %}
+              <label>
+                <input type="checkbox">
+                <span>{{ detail }}</span>
+              </label>
+              {% endfor %}
+            </div>
+            {% endif %}
+            {% if section.links is defined %}
+            <div class="map-link-grid">
+              {% for link in section.links %}
+              <a class="map-link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
         {% if point.map_url is defined %}
         <a class="map-link" href="{{ point.map_url }}" target="_blank" rel="noopener">{{ point.map_label }}</a>
         {% endif %}

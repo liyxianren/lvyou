@@ -4,7 +4,8 @@
 {% block heading %}今日行程看板{% endblock %}
 
 {% block content %}
-<section class="hero-panel">
+{% set visual_page = day.visual_page|default({}) %}
+<section class="hero-panel{% if visual_page.get('compact_hero') %} compact day-visual-hero{% endif %}">
   <div class="day-meta">
     <span>{{ day.date }}</span>
     <span>{{ day.drive.time }}</span>
@@ -70,7 +71,7 @@
   </div>
 </section>
 {% else %}
-{% if day.overview_map is defined %}
+{% if day.overview_map is defined and not visual_page.get('hide_route_overview') %}
 <section class="section route-overview" id="day-route-map">
   <div class="section-head route-overview-head">
     <div>
@@ -127,6 +128,7 @@
 
 {% include "plan_options.html" %}
 
+{% if not visual_page.get('hide_live_panel') %}
 <section class="live-panel" data-live-panel data-day-date="{{ day.date }}">
   <div>
     <span>当前时间</span>
@@ -134,7 +136,9 @@
   </div>
   <p data-live-summary>正在匹配时间线...</p>
 </section>
+{% endif %}
 
+{% if not visual_page.get('hide_metric_grid') %}
 <section class="metric-grid">
   <div class="metric">
     <span>预算区间</span>
@@ -157,7 +161,9 @@
     <strong>¥{{ total_actual|round(2) }}</strong>
   </div>
 </section>
+{% endif %}
 
+{% if not visual_page.get('hide_timeline') %}
 <section class="section">
   <div class="section-head">
     <h2>风险提醒</h2>
@@ -238,5 +244,6 @@
     {% endfor %}
   </div>
 </section>
+{% endif %}
 {% endif %}
 {% endblock %}

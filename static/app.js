@@ -143,15 +143,91 @@ function updateTimelineState() {
   });
 }
 
-updateTimelineState();
-window.setInterval(updateTimelineState, 30000);
-
 function activateVisualGuidePoint(root, id) {
   root.querySelectorAll("[data-guide-point]").forEach((button) => {
     button.setAttribute("aria-pressed", button.dataset.guidePoint === id ? "true" : "false");
+    button.classList.toggle("is-selected", button.dataset.guidePoint === id);
   });
   root.querySelectorAll("[data-guide-detail]").forEach((detail) => {
     detail.hidden = detail.dataset.guideDetail !== id;
+  });
+}
+
+function pickGuidePointByTime(root, now) {
+  const buttons = [...root.querySelectorAll("[data-guide-point]")];
+  if (!buttons.length) return null;
+
+  const dayDate = parseDayDate(root.dataset.guideDayDate);
+  const followClock = root.dataset.guideFollowClock === "true";
+  const params = new URLSearchParams(window.location.search);
+  const hasTimeOverride = params.has("time");
+  const starts = buttons.map((button) => parseTimeToMinutes(button.dataset.guideTime));
+  const ranges = buttons.map((button, index) => parseTimeRange(button.dataset.guideTime, starts[index + 1]));
+  const useClock = followClock || !dayDate || sameLocalDay(now, dayDate) || hasTimeOverride;
+
+  if (!useClock) {
+    const diff = dayDiff(now, dayDate);
+    return {
+      index: diff < 0 ? buttons.length - 1 : 0,
+      status: diff < 0 ? "已结束" : "第一步",
+      summary: diff < 0 ? `${root.dataset.guideDayDate} 已结束。` : `距离 ${root.dataset.guideDayDate} 还有 ${diff} 天。`,
+      useClock,
+    };
+  }
+
+  const nowMinutes = now.getHours() * 60 + now.getMinutes();
+  const activeIndex = ranges.findIndex((range) => range && nowMinutes >= range.start && nowMinutes < range.end);
+  const nextIndex = starts.findIndex((start) => Number.isFinite(start) && start > nowMinutes);
+  const index = activeIndex >= 0 ? activeIndex : (nextIndex >= 0 ? nextIndex : buttons.length - 1);
+  const status = activeIndex >= 0 ? "现在" : (nextIndex >= 0 ? "下一步" : "收尾");
+  const title = buttons[index]?.dataset.guideTitle || "当前点位";
+
+  return {
+    index,
+    status,
+    summary: activeIndex >= 0 ? `现在看：${title}` : `${status}：${title}`,
+    useClock,
+  };
+}
+
+function updateVisualGuideState() {
+  const now = getEffectiveNow();
+  document.querySelectorAll("[data-visual-live-clock]").forEach((node) => {
+    node.textContent = `${pad2(now.getHours())}:${pad2(now.getMinutes())}`;
+  });
+
+  document.querySelectorAll("[data-visual-guide]").forEach((root) => {
+    const buttons = [...root.querySelectorAll("[data-guide-point]")];
+    const details = [...root.querySelectorAll("[data-guide-detail]")];
+    const picked = pickGuidePointByTime(root, now);
+    if (!picked) return;
+
+    buttons.forEach((button, index) => {
+      const range = parseTimeRange(button.dataset.guideTime, parseTimeToMinutes(buttons[index + 1]?.dataset.guideTime));
+      const status = details[index]?.querySelector("[data-guide-status]");
+      const nowMinutes = now.getHours() * 60 + now.getMinutes();
+      button.classList.remove("is-done", "is-active", "is-next");
+      details[index]?.classList.remove("is-done", "is-active", "is-next");
+
+      if (index === picked.index) {
+        button.classList.add(picked.status === "现在" ? "is-active" : "is-next");
+        details[index]?.classList.add(picked.status === "现在" ? "is-active" : "is-next");
+        if (status) status.textContent = picked.status;
+      } else if (picked.useClock && range && nowMinutes >= range.end) {
+        button.classList.add("is-done");
+        details[index]?.classList.add("is-done");
+        if (status) status.textContent = "已过";
+      } else if (status) {
+        status.textContent = "待开始";
+      }
+    });
+
+    if (root.dataset.guideManual !== "true") {
+      activateVisualGuidePoint(root, buttons[picked.index].dataset.guidePoint);
+    }
+
+    const summary = root.querySelector("[data-visual-live-summary]");
+    if (summary) summary.textContent = picked.summary;
   });
 }
 
@@ -159,12 +235,20 @@ document.querySelectorAll("[data-visual-guide]").forEach((root) => {
   const buttons = [...root.querySelectorAll("[data-guide-point]")];
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
+      root.dataset.guideManual = "true";
       activateVisualGuidePoint(root, button.dataset.guidePoint);
     });
   });
   const active = buttons.find((button) => button.getAttribute("aria-pressed") === "true") || buttons[0];
   if (active) activateVisualGuidePoint(root, active.dataset.guidePoint);
 });
+
+updateTimelineState();
+updateVisualGuideState();
+window.setInterval(() => {
+  updateTimelineState();
+  updateVisualGuideState();
+}, 30000);
 
 async function postJson(url, payload) {
   const response = await fetch(url, {
