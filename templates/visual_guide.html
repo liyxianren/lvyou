@@ -1,0 +1,49 @@
+<section class="section visual-guide" data-visual-guide>
+  <div class="section-head visual-guide-head">
+    <div>
+      <span class="visual-guide-kicker">{{ guide.kicker }}</span>
+      <h2>{{ guide.title }}</h2>
+      <p>{{ guide.summary }}</p>
+    </div>
+    {% if guide_day is defined %}
+    <a class="map-link" href="{{ url_for('day_detail', day_id=guide_day.id) }}">Day {{ guide_day.day }} 详情</a>
+    {% endif %}
+  </div>
+  <div class="visual-guide-layout">
+    <div class="visual-guide-map" aria-label="{{ guide.title }}">
+      <img src="{{ guide.image_src }}" alt="{{ guide.image_alt }}" loading="lazy">
+      <div class="visual-guide-point-grid" aria-label="地图点位">
+      {% for point in guide.points %}
+      <button
+        class="visual-guide-point-card"
+        type="button"
+        data-guide-point="{{ point.id }}"
+        aria-pressed="{{ 'true' if loop.first else 'false' }}"
+        style="--point-x: {{ point.x }}%; --point-y: {{ point.y }}%;"
+      >
+        <span>{{ loop.index }}</span>
+        <strong>{{ point.label }}</strong>
+        <small>{{ point.time }}</small>
+      </button>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="visual-guide-detail-stack">
+      {% for point in guide.points %}
+      <article class="visual-guide-detail" data-guide-detail="{{ point.id }}" {% if not loop.first %}hidden{% endif %}>
+        <span>{{ point.time }}</span>
+        <h3>{{ point.title }}</h3>
+        <p>{{ point.description }}</p>
+        <ul class="compact-list">
+          {% for item in point.details %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+        {% if point.map_url is defined %}
+        <a class="map-link" href="{{ point.map_url }}" target="_blank" rel="noopener">{{ point.map_label }}</a>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

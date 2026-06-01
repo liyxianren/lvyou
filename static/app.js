@@ -146,6 +146,26 @@ function updateTimelineState() {
 updateTimelineState();
 window.setInterval(updateTimelineState, 30000);
 
+function activateVisualGuidePoint(root, id) {
+  root.querySelectorAll("[data-guide-point]").forEach((button) => {
+    button.setAttribute("aria-pressed", button.dataset.guidePoint === id ? "true" : "false");
+  });
+  root.querySelectorAll("[data-guide-detail]").forEach((detail) => {
+    detail.hidden = detail.dataset.guideDetail !== id;
+  });
+}
+
+document.querySelectorAll("[data-visual-guide]").forEach((root) => {
+  const buttons = [...root.querySelectorAll("[data-guide-point]")];
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activateVisualGuidePoint(root, button.dataset.guidePoint);
+    });
+  });
+  const active = buttons.find((button) => button.getAttribute("aria-pressed") === "true") || buttons[0];
+  if (active) activateVisualGuidePoint(root, active.dataset.guidePoint);
+});
+
 async function postJson(url, payload) {
   const response = await fetch(url, {
     method: "POST",

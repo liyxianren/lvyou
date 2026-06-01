@@ -26,6 +26,12 @@
   </div>
 </section>
 
+{% if day.visual_guide is defined %}
+  {% set guide = day.visual_guide %}
+  {% set guide_day = day %}
+  {% include "visual_guide.html" %}
+{% endif %}
+
 {% if day.is_prep_day %}
 <section class="live-panel prep-live-panel">
   <div>
@@ -75,11 +81,6 @@
     </div>
     <div class="map-link-grid">
       <a class="map-link map-link-primary" href="{{ day.overview_map.url }}" target="_blank" rel="noopener">{{ day.overview_map.action_label }}</a>
-      {% if day.overview_map.secondary_links is defined %}
-        {% for link in day.overview_map.secondary_links %}
-        <a class="map-link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
-        {% endfor %}
-      {% endif %}
     </div>
   </div>
   {% if day.overview_map.route_metrics is defined %}
@@ -105,6 +106,14 @@
     </li>
     {% endfor %}
   </ol>
+  {% endif %}
+  {% if day.overview_map.secondary_links is defined %}
+  <h3 class="route-subtitle">分段导航</h3>
+  <div class="map-link-grid route-secondary-links">
+    {% for link in day.overview_map.secondary_links %}
+    <a class="map-link" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+    {% endfor %}
+  </div>
   {% endif %}
   {% if day.overview_map.notes is defined %}
   <ul class="compact-list route-overview-notes">
