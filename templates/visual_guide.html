@@ -10,6 +10,11 @@
       <p>{{ guide.summary }}</p>
     </div>
     <div class="visual-guide-actions">
+    {% if guide.nav_links is defined %}
+    {% for link in guide.nav_links %}
+    <a class="map-link{% if loop.first %} map-link-primary{% endif %}" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a>
+    {% endfor %}
+    {% endif %}
     {% if guide.nav_url is defined %}
     <a class="map-link map-link-primary" href="{{ guide.nav_url }}" target="_blank" rel="noopener">{{ guide.nav_label|default("打开百度地图") }}</a>
     {% endif %}
@@ -28,7 +33,7 @@
       <div class="visual-guide-point-grid" aria-label="地图点位">
       {% for point in guide.points %}
       <button
-        class="visual-guide-point-card"
+        class="visual-guide-point-card{% if point.label_side is defined %} label-{{ point.label_side }}{% endif %}"
         type="button"
         data-guide-point="{{ point.id }}"
         data-guide-time="{{ point.time }}"

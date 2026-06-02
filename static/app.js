@@ -1,4 +1,5 @@
 let pendingProposal = null;
+const TRIP_TIME_ZONE = "Asia/Shanghai";
 
 function pad2(value) {
   return String(value).padStart(2, "0");
@@ -36,17 +37,41 @@ function parseTimeRange(value, nextStart) {
   return { start, end };
 }
 
+function getZonedNow(timeZone) {
+  if (!window.Intl || !Intl.DateTimeFormat) return new Date();
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+  });
+  const parts = Object.fromEntries(formatter.formatToParts(new Date()).map((part) => [part.type, part.value]));
+  return new Date(
+    Number(parts.year),
+    Number(parts.month) - 1,
+    Number(parts.day),
+    Number(parts.hour),
+    Number(parts.minute),
+    Number(parts.second || 0),
+  );
+}
+
 function getEffectiveNow() {
   const params = new URLSearchParams(window.location.search);
   const overrideDate = params.get("date");
   const overrideTime = params.get("time");
+  const chinaNow = getZonedNow(TRIP_TIME_ZONE);
   if (overrideDate || overrideTime) {
-    const base = overrideDate ? new Date(`${overrideDate}T00:00:00`) : new Date();
+    const base = overrideDate ? new Date(`${overrideDate}T00:00:00`) : chinaNow;
     const minutes = parseTimeToMinutes(overrideTime || `${pad2(base.getHours())}:${pad2(base.getMinutes())}`) || 0;
     base.setHours(Math.floor(minutes / 60), minutes % 60, 0, 0);
     return base;
   }
-  return new Date();
+  return chinaNow;
 }
 
 function sameLocalDay(a, b) {
@@ -164,11 +189,13 @@ function pickGuidePointByTime(root, now) {
 
   if (!useClock) {
     const diff = dayDiff(now, dayDate);
+    const isPast = diff < 0;
     return {
-      index: diff < 0 ? buttons.length - 1 : 0,
-      status: diff < 0 ? "已结束" : "第一步",
-      summary: diff < 0 ? `${root.dataset.guideDayDate} 已结束。` : `距离 ${root.dataset.guideDayDate} 还有 ${diff} 天。`,
+      index: isPast ? buttons.length - 1 : 0,
+      status: isPast ? "已结束" : "未到日期",
+      summary: isPast ? `${root.dataset.guideDayDate} 已结束。` : `距离 ${root.dataset.guideDayDate} 还有 ${diff} 天；当天才会按北京时间自动跳转。`,
       useClock,
+      phase: isPast ? "past" : "future",
     };
   }
 
@@ -184,6 +211,7 @@ function pickGuidePointByTime(root, now) {
     status,
     summary: activeIndex >= 0 ? `现在看：${title}` : `${status}：${title}`,
     useClock,
+    phase: "today",
   };
 }
 
@@ -206,7 +234,13 @@ function updateVisualGuideState() {
       button.classList.remove("is-done", "is-active", "is-next");
       details[index]?.classList.remove("is-done", "is-active", "is-next");
 
-      if (index === picked.index) {
+      if (!picked.useClock && picked.phase === "future") {
+        if (status) status.textContent = index === picked.index ? "未到日期" : "待开始";
+      } else if (!picked.useClock && picked.phase === "past") {
+        button.classList.add("is-done");
+        details[index]?.classList.add("is-done");
+        if (status) status.textContent = "已结束";
+      } else if (index === picked.index) {
         button.classList.add(picked.status === "现在" ? "is-active" : "is-next");
         details[index]?.classList.add(picked.status === "现在" ? "is-active" : "is-next");
         if (status) status.textContent = picked.status;

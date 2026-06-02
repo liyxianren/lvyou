@@ -918,6 +918,12 @@ body {
   text-align: left;
 }
 
+.visual-guide-point-card.label-left strong {
+  right: 40px;
+  left: auto;
+  text-align: right;
+}
+
 .visual-guide-point-card small {
   position: absolute;
   left: 40px;
@@ -930,6 +936,11 @@ body {
   font-size: 11px;
   line-height: 1.2;
   white-space: nowrap;
+}
+
+.visual-guide-point-card.label-left small {
+  right: 40px;
+  left: auto;
 }
 
 .visual-guide-point-card[aria-pressed="true"] {
