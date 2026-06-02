@@ -1480,7 +1480,7 @@
       "lodging_city": "琼库什台村",
       "risk_level": "high",
       "summary": "Day3 是琼库什台进村日：9:00 在霍城客之家早餐、拍民宿自带薰衣草并退房，10:00 出发去伊宁；11:30 左右到六星街片区吃午饭，轻逛、冰淇淋/格瓦奇/列巴和 Day4 路餐补给都在六星街顺手完成。13:50-14:10 到中国石油伊宁市天山站加油、上厕所、整理车内，14:20 前后离开伊宁，15:00 是最晚上限。傍晚约 18:40 到特克斯琼库什台雪山古道民宿，晚饭优先让民宿留餐，饭后只在附近轻走，并确认 Day4 后山卡口能否自驾抵达、被拦时村委会/2号停车场区间车方案、正规马队骑马线、林溪餐厅/松塔烤肉营业和特克斯住宿。",
-      "next_action": "Day3 吃饭路径：六星街午餐和补给合并完成；晚饭优先雪山古道民宿留餐。到店后确认 Day4 后山卡口能否自驾抵达、被拦时村委会/2号停车场区间车方案、正规马队路线、林溪餐厅/松塔烤肉营业和特克斯住宿。",
+      "next_action": "Day3 顶部已改为分段导航：霍城到六星街、六星街到加油站、加油站到雪山古道民宿。不要再用一个百度链接硬塞全部途经点，避免手机端丢点或终点异常。",
       "suppress_markdown": true,
       "drive": {
         "distance_km": 305,
@@ -1576,31 +1576,51 @@
           "id": "d3-t2",
           "time": "10:00-11:30",
           "title": "霍城 -> 伊宁六星街片区",
-          "detail": "百度核到霍城客之家到中国石油伊宁市天山站约 1 小时 23 分钟 / 93.5km；进城停车按 1.5 小时预留。"
+          "detail": "百度核到霍城客之家到中国石油伊宁市天山站约 1 小时 23 分钟 / 93.5km；进城停车按 1.5 小时预留。",
+          "map_link": {
+            "label": "百度地图：霍城到六星街",
+            "url": "https://api.map.baidu.com/direction?origin=%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF&destination=%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         },
         {
           "id": "d3-t3",
           "time": "11:30-13:40",
           "title": "六星街午餐 / 轻逛 / 顺手补给",
-          "detail": "先吃午饭，再轻逛彩色街区；冰淇淋、格瓦奇、列巴、酸奶和 Day4 路餐一起买，不单独拆补给时间。"
+          "detail": "先吃午饭，再轻逛彩色街区；冰淇淋、格瓦奇、列巴、酸奶和 Day4 路餐一起买，不单独拆补给时间。",
+          "map_link": {
+            "label": "百度地图：霍城到六星街",
+            "url": "https://api.map.baidu.com/direction?origin=%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF&destination=%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         },
         {
           "id": "d3-t4",
           "time": "13:40-14:10",
           "title": "中国石油伊宁市天山站加油 / 上厕所",
-          "detail": "加油、上厕所、整理车内和导航；14:20 前后离开伊宁最舒服，15:00 是最晚上限。"
+          "detail": "加油、上厕所、整理车内和导航；14:20 前后离开伊宁最舒服，15:00 是最晚上限。",
+          "map_link": {
+            "label": "百度地图：六星街到加油站",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA&destination=%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99%28%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99%29&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         },
         {
           "id": "d3-t5",
           "time": "14:10-18:40",
           "title": "伊宁 -> 琼库什台",
-          "detail": "百度核到中国石油伊宁市天山站到琼库什台约 4 小时 16 分钟 / 211.6km，后段山路按 4.5 小时以上预留。"
+          "detail": "百度核到中国石油伊宁市天山站到琼库什台约 4 小时 16 分钟 / 211.6km，后段山路按 4.5 小时以上预留。",
+          "map_link": {
+            "label": "百度地图：加油站到雪山古道民宿",
+            "url": "https://api.map.baidu.com/direction?origin=%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99%28%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99%29&destination=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         },
         {
           "id": "d3-t6",
           "time": "18:40-19:30",
           "title": "雪山古道民宿入住 / 停车",
-          "detail": "按短链到特克斯琼库什台雪山古道民宿，先确认停车、热水、早餐、晚饭和次日后山卡口能否自驾抵达、被拦时的村委会/2号停车场区间车方案和正规马队路线。"
+          "detail": "按短链到特克斯琼库什台雪山古道民宿，先确认停车、热水、早餐、晚饭和次日后山卡口能否自驾抵达、被拦时的村委会/2号停车场区间车方案和正规马队路线。",
+          "map_link": {
+            "label": "百度地图：加油站到雪山古道民宿",
+            "url": "https://api.map.baidu.com/direction?origin=%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99%28%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99%29&destination=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         },
         {
           "id": "d3-t7",
@@ -1661,32 +1681,36 @@
       ],
       "overview_map": {
         "title": "Day3：霍城民宿薰衣草 + 伊宁六星街 + 雪山古道民宿",
-        "summary": "上午在民宿早餐和拍薰衣草，10:00 出发去伊宁；中午六星街吃饭轻逛，出城前在中国石油伊宁市天山站加油，14:05-14:20 出发进琼库什台，傍晚按短链入住雪山古道民宿。",
-        "action_label": "打开百度地图 Day3 路线",
+        "summary": "Day3 使用分段导航执行：先从霍城客之家到六星街停车，六星街补给后到伊宁市天山站加油，再从加油站进琼库什台雪山古道民宿。",
+        "action_label": "百度分段导航：霍城到六星街",
         "secondary_links": [
           {
             "label": "百度地图：雪山古道民宿",
             "url": "https://j.map.baidu.com/6c/5q6k"
           }
         ],
-        "url": "https://map.baidu.com/dir/%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF/%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA/%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99(%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99)/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/@9072023.220782442,5350309.970000001,10.74z?querytype=nav&c=92&route_traffic=1&da_src=shareurl",
-        "embed_url": "https://map.baidu.com/dir/%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF/%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA/%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99(%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99)/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/@9072023.220782442,5350309.970000001,10.74z?querytype=nav&c=92&route_traffic=1&da_src=shareurl",
+        "url": "https://api.map.baidu.com/direction?origin=%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF&destination=%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
+        "embed_url": "https://api.map.baidu.com/direction?origin=%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF&destination=%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
         "route_metrics": [
           {
-            "label": "纯开车",
-            "value": "约 5h40-6h"
+            "label": "1",
+            "value": "霍城->六星街"
           },
           {
-            "label": "距离",
-            "value": "约 305km"
+            "label": "2",
+            "value": "六星街->加油站"
           },
           {
-            "label": "伊宁离开",
-            "value": "14:05-14:20"
+            "label": "3",
+            "value": "加油站->民宿"
           },
           {
-            "label": "住宿",
-            "value": "雪山古道民宿"
+            "label": "出发",
+            "value": "10:00"
+          },
+          {
+            "label": "进山",
+            "value": "14:20 前后"
           }
         ],
         "stops": [
@@ -1708,10 +1732,9 @@
           }
         ],
         "notes": [
-          "六星街只做午餐后轻逛，路餐和水顺手买。",
-          "中国石油伊宁市天山站作为出城前加油、厕所和整理车内的固定点。",
-          "15:00 还没离开伊宁，就取消所有额外停留，直接进琼库什台。",
-          "提前离线保存雪山古道民宿短链，到店先确认停车、热水、晚餐、早餐和 Day4 马队。"
+          "百度手机端会丢多途经点，Day3 顶部改用 3 段已验证导航。",
+          "六星街补给顺手完成，不再单独加路线点。",
+          "最后一段从加油站直接进琼库什台，不再新增伊宁停靠。"
         ]
       },
       "distance": "约 305km",
@@ -1743,7 +1766,7 @@
       "visual_guide": {
         "kicker": "路线图",
         "title": "Day3 霍城到琼库什台图片攻略",
-        "summary": "先看图，再点 1-5。日期匹配 6 月 13 日当天后，页面会按当前时间打开对应点位；每个点位里直接放玩法、停车、跳过规则和导航。",
+        "summary": "先看图，再点 1-5。日期匹配 6 月 13 日当天后，页面会按当前时间打开对应点位；顶部使用 3 段百度导航，避免一个整日链接在手机端丢途经点。",
         "image_src": "/static/day3-route-map-clean.jpg",
         "image_alt": "Day3 霍城民宿薰衣草、伊宁六星街、加油站、山路和琼库什台民宿的水彩路线图",
         "points": [
@@ -1760,8 +1783,8 @@
               "退房、装车、确认水和路餐，10:00 直接去伊宁六星街片区。",
               "这一步不要加新景点，今天真正的压力是下午进琼库什台山路。"
             ],
-            "map_label": "打开 Day3 总路线",
-            "map_url": "https://map.baidu.com/dir/%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF/%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA/%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99(%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99)/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/@9072023.220782442,5350309.970000001,10.74z?querytype=nav&c=92&route_traffic=1&da_src=shareurl",
+            "map_label": "百度地图：霍城到六星街",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF&destination=%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
             "route_metrics": [
               {
                 "label": "早餐",
@@ -1807,8 +1830,8 @@
               "先吃午餐，再轻逛彩色街区；不去喀赞其、伊犁河和汉人街。",
               "水、酸奶、列巴、水果和能量棒在六星街顺手买，为 Day4 徒步骑马准备。"
             ],
-            "map_label": "打开 Day3 总路线",
-            "map_url": "https://map.baidu.com/dir/%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF/%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA/%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99(%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99)/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/@9072023.220782442,5350309.970000001,10.74z?querytype=nav&c=92&route_traffic=1&da_src=shareurl",
+            "map_label": "百度地图：霍城到六星街",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF&destination=%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
             "route_metrics": [
               {
                 "label": "到达",
@@ -1860,8 +1883,8 @@
               "加油、上厕所、整理车内、确认琼库什台导航和民宿电话，10-15 分钟解决。",
               "14:20 前后离开伊宁最舒服；15:00 是最晚上限。"
             ],
-            "map_label": "打开 Day3 总路线",
-            "map_url": "https://map.baidu.com/dir/%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF/%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA/%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99(%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99)/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/@9072023.220782442,5350309.970000001,10.74z?querytype=nav&c=92&route_traffic=1&da_src=shareurl",
+            "map_label": "百度地图：六星街到加油站",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA&destination=%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99%28%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99%29&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
             "route_metrics": [
               {
                 "label": "地点",
@@ -1908,8 +1931,8 @@
               "路上只做安全停车、厕所和补水短停，不再加景点。",
               "雨雾、会车压力或天色变差时，宁愿慢一点，不为了到店时间压速度。"
             ],
-            "map_label": "百度地图：Day3 霍城-伊宁-琼库什台路线",
-            "map_url": "https://map.baidu.com/dir/%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF/%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA/%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99(%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99)/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/@9072023.220782442,5350309.970000001,10.74z?querytype=nav&c=92&route_traffic=1&da_src=shareurl",
+            "map_label": "百度地图：加油站到雪山古道民宿",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99%28%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99%29&destination=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
             "route_metrics": [
               {
                 "label": "距离",
@@ -1955,8 +1978,8 @@
               "晚餐优先民宿解决，点热菜、汤和主食；如果不供餐，让老板推荐最近的村内餐厅。",
               "饭后确认 Day4 后山卡口能否自驾抵达、被拦时村委会/2号停车场区间车方案、正规马队路线、林溪餐厅/松塔烤肉营业和特克斯住宿。"
             ],
-            "map_label": "百度地图：雪山古道民宿",
-            "map_url": "https://j.map.baidu.com/6c/5q6k",
+            "map_label": "百度地图：加油站到雪山古道民宿",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99%28%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99%29&destination=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
             "route_metrics": [
               {
                 "label": "住宿",
@@ -2000,8 +2023,20 @@
             ]
           }
         ],
-        "nav_label": "百度地图一键导航",
-        "nav_url": "https://map.baidu.com/dir/%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF/%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA/%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99(%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99)/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/@9072023.220782442,5350309.970000001,10.74z?querytype=nav&c=92&route_traffic=1&da_src=shareurl"
+        "nav_links": [
+          {
+            "label": "1 霍城->六星街",
+            "url": "https://api.map.baidu.com/direction?origin=%E9%9C%8D%E5%9F%8E%E5%AE%A2%E4%B9%8B%E5%AE%B6%E6%B0%91%E5%AE%BF&destination=%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          },
+          {
+            "label": "2 六星街->加油站",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%85%AD%E6%98%9F%E8%A1%97%E6%99%AF%E5%8C%BA-%E5%9C%B0%E4%B8%8B%E5%81%9C%E8%BD%A6%E5%9C%BA&destination=%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99%28%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99%29&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          },
+          {
+            "label": "3 加油站->民宿",
+            "url": "https://api.map.baidu.com/direction?origin=%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%8A%A0%E6%B2%B9%E7%AB%99%28%E4%BC%8A%E5%AE%81%E5%B8%82%E5%A4%A9%E5%B1%B1%E7%AB%99%29&destination=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
+        ]
       },
       "visual_page": {
         "hide_route_overview": true,
@@ -2020,7 +2055,7 @@
       "lodging_city": "特克斯县",
       "risk_level": "high",
       "summary": "Day4 使用北京时间判断节点。9:00 在琼库什台住宿早餐，上午只做民宿周边和村内轻走拍照，不再把乌孙古道入口当成稳定执行项目。中午退房轻食后，12:20 先尝试自驾到百度当前识别的琼库什台村落-新桥2号停车场（后山卡口）；若当天村里/卡口不放社会车辆，就退回琼库什台村委会停车场或 2号停车场，坐官方区间车到后山卡口。卡口后再选择正规马队骑马或徒步去网红秋千方向，晚饭优先林溪餐厅，19:40 左右从林溪餐厅下山到特克斯从前慢民宿(八卦城店)。林溪到特克斯县原基准约 2 小时 23 分钟 / 88.1km，具体到店时间以百度实时导航为准。",
-      "next_action": "Day3 晚上让民宿确认新桥2号停车场/后山卡口能否自驾抵达、被拦时从村委会/2号停车场坐区间车的上车点、正规马队价格和路线；Day4 顶部使用整日百度路线“民宿 -> 新桥2号停车场 -> 林溪餐厅 -> 特克斯从前慢民宿”。",
+      "next_action": "Day3 晚上确认后山卡口是否放社会车辆。Day4 顶部改为分段导航：民宿到新桥2号停车场、备用到村委会停车场、林溪餐厅到从前慢民宿；不再用一条整日 URL 硬串，避免手机端终点异常。",
       "suppress_markdown": true,
       "drive": {
         "distance_km": 88,
@@ -2120,7 +2155,7 @@
           "id": "d4-t3",
           "time": "11:20-12:20",
           "title": "回民宿退房 / 轻午饭",
-          "detail": "回雪山古道民宿退房、把行李放车；午饭以民宿简餐、路餐或快手面饭为主，骑马前不要吃太撑。12:20 准备按整日百度路线先去琼库什台村落-新桥2号停车场（后山卡口），晚上的终点已落到特克斯从前慢民宿。"
+          "detail": "回雪山古道民宿退房、把行李放车；午饭以民宿简餐、路餐或快手面饭为主，骑马前不要吃太撑。12:20 准备按“民宿 -> 后山卡口”分段导航先去琼库什台村落-新桥2号停车场（后山卡口），晚上的下山路线单独用“林溪 -> 从前慢”。"
         },
         {
           "id": "d4-t4",
@@ -2128,8 +2163,8 @@
           "title": "民宿 -> 新桥2号停车场/后山卡口：先尝试自驾",
           "detail": "主路线先尝试自驾到琼库什台村落-新桥2号停车场（后山卡口）；若当天村里/卡口不放社会车辆，就退回琼库什台村委会停车场或 2号停车场，坐官方区间车到后山卡口。小红书 2026 常见口径：区间车 20 元/人单程、约 15-20 分钟、坐满发车。",
           "map_link": {
-            "label": "百度整日路线：民宿 -> 后山卡口 -> 林溪 -> 从前慢",
-            "url": "https://map.baidu.com/dir/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA/%E6%9E%97%E6%BA%AA%E9%A4%90%E5%8E%85/%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29?querytype=nav&c=340&route_traffic=1"
+            "label": "百度地图：民宿到后山卡口",
+            "url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&destination=%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
           }
         },
         {
@@ -2156,15 +2191,19 @@
           "title": "林溪餐厅 -> 特克斯从前慢民宿",
           "detail": "晚饭后从林溪餐厅下山到特克斯从前慢民宿(八卦城店)；林溪到特克斯县原基准约 2 小时 23 分钟 / 88.1km，夜间山路按 2.5 小时预留，到店以百度实时导航为准。",
           "map_link": {
-            "label": "百度驾车：林溪餐厅到从前慢",
-            "url": "https://map.baidu.com/dir/%E6%9E%97%E6%BA%AA%E9%A4%90%E5%8E%85/%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29?querytype=nav&c=340&route_traffic=1"
+            "label": "百度地图：林溪到从前慢",
+            "url": "https://api.map.baidu.com/direction?origin=%E6%9E%97%E6%BA%AA%E9%A4%90%E5%8E%85&destination=%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
           }
         },
         {
           "id": "d4-t9",
           "time": "22:10-22:30",
           "title": "特克斯入住",
-          "detail": "入住特克斯从前慢民宿(八卦城店)，停车、洗澡、补水，确认 Day5 早餐/退房和独库通车信息。"
+          "detail": "入住特克斯从前慢民宿(八卦城店)，停车、洗澡、补水，确认 Day5 早餐/退房和独库通车信息。",
+          "map_link": {
+            "label": "百度地图：林溪到从前慢",
+            "url": "https://api.map.baidu.com/direction?origin=%E6%9E%97%E6%BA%AA%E9%A4%90%E5%8E%85&destination=%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         }
       ],
       "budget": [
@@ -2229,30 +2268,30 @@
       ],
       "overview_map": {
         "title": "Day4：后山卡口自驾优先 + 林溪晚饭后到从前慢",
-        "summary": "上午民宿周边和村内轻走；中午退房轻食；12:20 先尝试自驾到琼库什台村落-新桥2号停车场（后山卡口）。若当天不放社会车辆，就退回村委会停车场或 2号停车场坐官方区间车到后山卡口。卡口之后骑马/徒步，晚饭后从林溪餐厅开到特克斯从前慢民宿(八卦城店)。",
-        "action_label": "百度整日路线：民宿 -> 后山卡口 -> 林溪 -> 从前慢",
-        "url": "https://map.baidu.com/dir/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA/%E6%9E%97%E6%BA%AA%E9%A4%90%E5%8E%85/%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29?querytype=nav&c=340&route_traffic=1",
-        "embed_url": "https://map.baidu.com/dir/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA/%E6%9E%97%E6%BA%AA%E9%A4%90%E5%8E%85/%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29?querytype=nav&c=340&route_traffic=1",
+        "summary": "Day4 使用分段导航：先尝试从雪山古道民宿开到新桥2号停车场/后山卡口；若被拦，改到村委会停车场坐区间车；晚饭后从林溪餐厅开到特克斯从前慢。",
+        "action_label": "百度分段导航：民宿到后山卡口",
+        "url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&destination=%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
+        "embed_url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&destination=%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
         "route_metrics": [
           {
-            "label": "整日路线",
-            "value": "已串联"
+            "label": "主线",
+            "value": "民宿->后山卡口"
           },
           {
-            "label": "后山卡口",
-            "value": "自驾优先"
+            "label": "备用",
+            "value": "民宿->村委会"
           },
           {
-            "label": "区间车备用",
-            "value": "20元/人"
+            "label": "下山",
+            "value": "林溪->从前慢"
           },
           {
-            "label": "骑马/徒步",
-            "value": "现场确认"
+            "label": "卡口",
+            "value": "当天放行"
           },
           {
-            "label": "下山驾驶",
-            "value": "约 2h23m"
+            "label": "下山",
+            "value": "19:40"
           }
         ],
         "stops": [
@@ -2282,15 +2321,15 @@
           }
         ],
         "notes": [
-          "顶部百度路线按“民宿 -> 新桥2号停车场/后山卡口 -> 林溪餐厅 -> 特克斯从前慢民宿”串联；后山卡口具体放行以当天管理为准。",
-          "如果社会车辆被拦，实际执行改为村委会停车场/2号停车场坐区间车到后山卡口。",
-          "后山卡口之后不能写成自驾到网红秋千，只能按当天允许路线徒步或找正规马队。"
+          "百度手机端会丢多途经点，Day4 顶部改用 3 段已验证导航。",
+          "新桥2号停车场只是车止点，卡口之后徒步或骑马。",
+          "社会车辆被拦时，改用村委会停车场备用路线。"
         ]
       },
       "visual_guide": {
         "kicker": "路线图",
         "title": "Day4 琼库什台图片攻略",
-        "summary": "先看图，再点 1-6。时间基准是北京时间；只有日期匹配 6 月 14 日当天，页面才会按当前时间自动跳转。Day4 顶部百度路线已串成“民宿 -> 后山卡口 -> 林溪餐厅 -> 特克斯从前慢民宿”；后山卡口优先自驾，被拦再坐区间车。",
+        "summary": "先看图，再点 1-6。时间基准是北京时间；只有日期匹配 6 月 14 日当天，页面才会按当前时间自动跳转。顶部改为 3 段百度导航：到后山卡口、备用到村委会、林溪下山到从前慢。",
         "image_src": "/static/day4-route-map-clean.jpg",
         "image_alt": "Day4 琼库什台村内轻走、后山卡口骑马、村内晚饭和下山特克斯的水彩路线图",
         "points": [
@@ -2307,8 +2346,8 @@
               "给民宿/马队确认：新桥2号停车场/后山卡口能否自驾抵达；如果被拦，琼库什台村委会停车场、1号/2号停车场哪个是当天区间车上车点。",
               "顺手确认林溪餐厅、松塔烤肉、拾叁台餐厅是否营业；晚饭不能排长队，19:40 左右要准备下山。"
             ],
-            "map_label": "百度地图：雪山古道民宿",
-            "map_url": "https://j.map.baidu.com/6c/5q6k",
+            "map_label": "百度地图：民宿到后山卡口",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&destination=%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
             "route_metrics": [
               {
                 "label": "起床",
@@ -2398,10 +2437,10 @@
             "details": [
               "先把行李放车，确认贵重物品和证件随身，车里留水和换衣服。",
               "午饭吃轻一点：面、汤、简餐、列巴、酸奶、水果或能量棒，避免吃撑后骑马难受。",
-              "12:20 左右按整日百度路线先尝试自驾到琼库什台村落-新桥2号停车场（后山卡口）；如果被拦，再退回村委会/2号停车场坐官方区间车。"
+              "12:20 左右按“民宿 -> 后山卡口”分段导航先尝试自驾到琼库什台村落-新桥2号停车场（后山卡口）；如果被拦，再退回村委会/2号停车场坐官方区间车。"
             ],
-            "map_label": "百度地图：雪山古道民宿",
-            "map_url": "https://j.map.baidu.com/6c/5q6k",
+            "map_label": "百度地图：民宿到后山卡口",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&destination=%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
             "route_metrics": [
               {
                 "label": "午饭",
@@ -2442,7 +2481,7 @@
             "x": 90.2,
             "y": 41.7,
             "title": "先自驾到后山卡口：被拦再坐区间车",
-            "description": "12:20 按整日百度路线先尝试自驾到琼库什台村落-新桥2号停车场（后山卡口）。若当天不放社会车辆，就退回村委会/2号停车场坐官方区间车到卡口。卡口后再骑马或徒步。",
+            "description": "12:20 按“民宿 -> 后山卡口”分段导航先尝试自驾到琼库什台村落-新桥2号停车场（后山卡口）。若当天不放社会车辆，就退回村委会/2号停车场坐官方区间车到卡口。卡口后再骑马或徒步。",
             "details": [
               "顶部百度路线已经串成：雪山古道民宿 -> 琼库什台村落-新桥2号停车场（后山卡口） -> 林溪餐厅 -> 特克斯从前慢民宿。",
               "后山卡口能否自驾到达以当天管控为准；小红书 2026 口径显示，若被拦可坐官方区间车，常见为 20 元/人单程、约 15-20 分钟、坐满发车。",
@@ -2473,16 +2512,16 @@
                 ],
                 "links": [
                   {
-                    "label": "整日路线",
-                    "url": "https://map.baidu.com/dir/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA/%E6%9E%97%E6%BA%AA%E9%A4%90%E5%8E%85/%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29?querytype=nav&c=340&route_traffic=1"
+                    "label": "百度地图：民宿到后山卡口",
+                    "url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&destination=%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
                   },
                   {
-                    "label": "备用：村委会停车场",
+                    "label": "备用：民宿到村委会停车场",
                     "url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&destination=%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E5%A7%94%E4%BC%9A%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
                   },
                   {
-                    "label": "搜后山卡口停车场",
-                    "url": "https://map.baidu.com/mobile/webapp/search/search/qt=s&wd=%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E5%90%8E%E5%B1%B1%E5%8D%A1%E5%8F%A3%E5%81%9C%E8%BD%A6%E5%9C%BA"
+                    "label": "百度地图：民宿到后山卡口",
+                    "url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&destination=%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
                   }
                 ]
               },
@@ -2505,8 +2544,8 @@
               }
             ],
             "label_side": "left",
-            "map_label": "百度整日路线",
-            "map_url": "https://map.baidu.com/dir/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA/%E6%9E%97%E6%BA%AA%E9%A4%90%E5%8E%85/%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29?querytype=nav&c=340&route_traffic=1"
+            "map_label": "百度地图：民宿到后山卡口",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&destination=%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
           },
           {
             "id": "qiongkushitai-dinner",
@@ -2564,7 +2603,9 @@
                   }
                 ]
               }
-            ]
+            ],
+            "map_label": "百度地图：林溪到从前慢",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E6%9E%97%E6%BA%AA%E9%A4%90%E5%8E%85&destination=%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
           },
           {
             "id": "tekes-descent",
@@ -2579,8 +2620,8 @@
               "下山前确认车灯、油量、雨雾情况、司机状态和从前慢民宿可 22:00 后入住。",
               "到店后只做入住、洗澡、补水和确认 Day5 独库通车信息，不再加夜宵或夜游。"
             ],
-            "map_label": "百度整日路线：含后山卡口",
-            "map_url": "https://map.baidu.com/dir/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA/%E6%9E%97%E6%BA%AA%E9%A4%90%E5%8E%85/%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29?querytype=nav&c=340&route_traffic=1",
+            "map_label": "百度地图：林溪到从前慢",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E6%9E%97%E6%BA%AA%E9%A4%90%E5%8E%85&destination=%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
             "route_metrics": [
               {
                 "label": "百度时间",
@@ -2615,8 +2656,20 @@
             "label_side": "left"
           }
         ],
-        "nav_label": "百度地图一键导航",
-        "nav_url": "https://map.baidu.com/dir/%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF/%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA/%E6%9E%97%E6%BA%AA%E9%A4%90%E5%8E%85/%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29?querytype=nav&c=340&route_traffic=1"
+        "nav_links": [
+          {
+            "label": "1 民宿->后山卡口",
+            "url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&destination=%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E8%90%BD-%E6%96%B0%E6%A1%A52%E5%8F%B7%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          },
+          {
+            "label": "备用：民宿->村委会",
+            "url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E9%9B%AA%E5%B1%B1%E5%8F%A4%E9%81%93%E6%B0%91%E5%AE%BF&destination=%E7%90%BC%E5%BA%93%E4%BB%80%E5%8F%B0%E6%9D%91%E5%A7%94%E4%BC%9A%E5%81%9C%E8%BD%A6%E5%9C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          },
+          {
+            "label": "2 林溪->从前慢",
+            "url": "https://api.map.baidu.com/direction?origin=%E6%9E%97%E6%BA%AA%E9%A4%90%E5%8E%85&destination=%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
+        ]
       },
       "visual_page": {
         "hide_route_overview": true,
@@ -2635,7 +2688,7 @@
       "lodging_city": "奎屯",
       "risk_level": "high",
       "summary": "Day5 从特克斯从前慢民宿(八卦城店)出发，先把特克斯到乔尔玛这段 S315 当成唐布拉百里画廊路景线执行：从前慢到百里画廊百度约 4 小时 7 分钟 / 243.2km，百里画廊到乔尔玛约 41 分钟 / 38.4km，路上按状态轻停 2-3 次，不深玩唐布拉。午后经乔尔玛接独库北段，晚上 21:00-22:00 到奎屯丽漫酒店可接受。独山子只作为天气差、堵车或司机疲劳时的安全降级点。",
-      "next_action": "Day4 晚上在特克斯从前慢民宿确认独库通车、天气、油量和早餐；Day5 顶部导航按从前慢 -> 百里画廊 -> 乔尔玛 -> 哈希勒根达坂 -> 独山子 -> 奎屯丽漫。当天到百里画廊前后自己按视野和安全停车点控制停留；15:00 前后能进入独库北段即可。",
+      "next_action": "Day5 顶部改为 5 段百度导航：从前慢到百里画廊、百里画廊到乔尔玛、乔尔玛到哈希勒根、哈希勒根到独山子、独山子到奎屯丽漫。不要再用一个整日链接硬塞全部途经点。",
       "drive": {
         "distance_km": 430,
         "time": "特克斯从前慢民宿到百里画廊约 4 小时 7 分钟 / 243.2km，百里画廊到乔尔玛约 41 分钟 / 38.4km；乔尔玛经哈希勒根达坂到独山子按走走停停 5-5.5 小时预留；独山子到奎屯丽漫酒店按 30-40 分钟预留，具体以百度实时导航为准"
@@ -2695,51 +2748,79 @@
           "title": "从前慢民宿 -> 百里画廊",
           "detail": "百度约 4 小时 7 分钟 / 243.2km。路上以安全驾驶为主，不为了拍照停弯道、桥面、落石区或应急车道。",
           "map_link": {
-            "label": "百度地图：Day5 百里画廊路线",
-            "url": "https://map.baidu.com/dir/%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29/%E7%99%BE%E9%87%8C%E7%94%BB%E5%BB%8A/%E4%B9%94%E5%B0%94%E7%8E%9B%E9%9D%A9%E5%91%BD%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD/%E5%93%88%E5%B8%8C%E5%8B%92%E6%A0%B9%E8%BE%BE%E5%9D%82/%E7%8B%AC%E5%B1%B1%E5%AD%90%E5%8C%BA/%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97?querytype=nav&c=340&route_traffic=1"
+            "label": "百度地图：从前慢到百里画廊",
+            "url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29&destination=%E5%94%90%E5%B8%83%E6%8B%89%E7%99%BE%E9%87%8C%E7%94%BB%E5%BB%8A&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
           }
         },
         {
           "id": "d5-t3",
           "time": "12:10-13:20",
           "title": "百里画廊/S315轻停 -> 乔尔玛",
-          "detail": "百里画廊到乔尔玛百度约 41 分钟 / 38.4km；中间按视野和停车条件轻停 2-3 次即可，不转成唐布拉深玩。"
+          "detail": "百里画廊到乔尔玛百度约 41 分钟 / 38.4km；中间按视野和停车条件轻停 2-3 次即可，不转成唐布拉深玩。",
+          "map_link": {
+            "label": "百度地图：百里画廊到乔尔玛",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%94%90%E5%B8%83%E6%8B%89%E7%99%BE%E9%87%8C%E7%94%BB%E5%BB%8A&destination=%E4%B9%94%E5%B0%94%E7%8E%9B%E9%9D%A9%E5%91%BD%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         },
         {
           "id": "d5-t4",
           "time": "13:20-14:00",
           "title": "乔尔玛午餐 / 补给",
-          "detail": "简餐、厕所、补水，烈士陵园短停；不要把午餐拖成大休息。"
+          "detail": "简餐、厕所、补水，烈士陵园短停；不要把午餐拖成大休息。",
+          "map_link": {
+            "label": "百度地图：百里画廊到乔尔玛",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%94%90%E5%B8%83%E6%8B%89%E7%99%BE%E9%87%8C%E7%94%BB%E5%BB%8A&destination=%E4%B9%94%E5%B0%94%E7%8E%9B%E9%9D%A9%E5%91%BD%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         },
         {
           "id": "d5-t5",
           "time": "14:00-14:15",
           "title": "进入独库北段",
-          "detail": "下午接上独库北段；如果到乔尔玛明显晚于 15:00，减少独库停车。"
+          "detail": "下午接上独库北段；如果到乔尔玛明显晚于 15:00，减少独库停车。",
+          "map_link": {
+            "label": "百度地图：乔尔玛到哈希勒根",
+            "url": "https://api.map.baidu.com/direction?origin=%E4%B9%94%E5%B0%94%E7%8E%9B%E9%9D%A9%E5%91%BD%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD&destination=%E5%93%88%E5%B8%8C%E5%8B%92%E6%A0%B9%E8%BE%BE%E5%9D%82&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         },
         {
           "id": "d5-t6",
           "time": "14:15-20:10",
           "title": "乔尔玛 -> 哈希勒根达坂 -> 独山子方向",
-          "detail": "当天核心风景仍是独库北段，停安全观景点，不停弯道、桥面、落石区。"
+          "detail": "当天核心风景仍是独库北段，停安全观景点，不停弯道、桥面、落石区。",
+          "map_link": {
+            "label": "百度地图：乔尔玛到哈希勒根",
+            "url": "https://api.map.baidu.com/direction?origin=%E4%B9%94%E5%B0%94%E7%8E%9B%E9%9D%A9%E5%91%BD%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD&destination=%E5%93%88%E5%B8%8C%E5%8B%92%E6%A0%B9%E8%BE%BE%E5%9D%82&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         },
         {
           "id": "d5-t7",
           "time": "20:10-20:40",
           "title": "独山子短停 / 判断住宿",
-          "detail": "主线继续去奎屯丽漫酒店；如果天气差、堵车、天色/体力不对，独山子直接住下，不硬撑。"
+          "detail": "主线继续去奎屯丽漫酒店；如果天气差、堵车、天色/体力不对，独山子直接住下，不硬撑。",
+          "map_link": {
+            "label": "百度地图：哈希勒根到独山子",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%93%88%E5%B8%8C%E5%8B%92%E6%A0%B9%E8%BE%BE%E5%9D%82&destination=%E7%8B%AC%E5%B1%B1%E5%AD%90%E5%8C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         },
         {
           "id": "d5-t8",
           "time": "20:40-21:20",
           "title": "独山子 -> 奎屯丽漫酒店",
-          "detail": "独山子到奎屯丽漫酒店按 30-40 分钟预留；进城后先入住再吃饭，不再加独山子大峡谷。"
+          "detail": "独山子到奎屯丽漫酒店按 30-40 分钟预留；进城后先入住再吃饭，不再加独山子大峡谷。",
+          "map_link": {
+            "label": "百度地图：独山子到奎屯丽漫",
+            "url": "https://api.map.baidu.com/direction?origin=%E7%8B%AC%E5%B1%B1%E5%AD%90%E5%8C%BA&destination=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         },
         {
           "id": "d5-t9",
           "time": "21:20-22:10",
           "title": "晚餐 / 休息",
-          "detail": "大盘鸡、小公鸡、烧烤或酒店附近简餐；不喝酒，Day6 要回乌鲁木齐还车。"
+          "detail": "大盘鸡、小公鸡、烧烤或酒店附近简餐；不喝酒，Day6 要回乌鲁木齐还车。",
+          "map_link": {
+            "label": "百度地图：独山子到奎屯丽漫",
+            "url": "https://api.map.baidu.com/direction?origin=%E7%8B%AC%E5%B1%B1%E5%AD%90%E5%8C%BA&destination=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         }
       ],
       "budget": [
@@ -2830,30 +2911,30 @@
       },
       "overview_map": {
         "title": "Day5：唐布拉百里画廊接乔尔玛和独库北段",
-        "summary": "从特克斯从前慢民宿出发，经唐布拉百里画廊/S315 轻停到乔尔玛，下午接独库北段，晚上 21:00-22:00 到奎屯丽漫酒店可接受。",
-        "action_label": "打开百度地图 Day5 整日路线",
-        "url": "https://map.baidu.com/dir/%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29/%E7%99%BE%E9%87%8C%E7%94%BB%E5%BB%8A/%E4%B9%94%E5%B0%94%E7%8E%9B%E9%9D%A9%E5%91%BD%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD/%E5%93%88%E5%B8%8C%E5%8B%92%E6%A0%B9%E8%BE%BE%E5%9D%82/%E7%8B%AC%E5%B1%B1%E5%AD%90%E5%8C%BA/%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97?querytype=nav&c=340&route_traffic=1",
-        "embed_url": "https://map.baidu.com/dir/%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29/%E7%99%BE%E9%87%8C%E7%94%BB%E5%BB%8A/%E4%B9%94%E5%B0%94%E7%8E%9B%E9%9D%A9%E5%91%BD%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD/%E5%93%88%E5%B8%8C%E5%8B%92%E6%A0%B9%E8%BE%BE%E5%9D%82/%E7%8B%AC%E5%B1%B1%E5%AD%90%E5%8C%BA/%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97?querytype=nav&c=340&route_traffic=1",
+        "summary": "Day5 使用分段导航执行：上午从前慢到唐布拉百里画廊，随后到乔尔玛；下午按乔尔玛、哈希勒根、独山子、奎屯丽漫逐段推进。",
+        "action_label": "百度分段导航：从前慢到百里画廊",
+        "url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29&destination=%E5%94%90%E5%B8%83%E6%8B%89%E7%99%BE%E9%87%8C%E7%94%BB%E5%BB%8A&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
+        "embed_url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29&destination=%E5%94%90%E5%B8%83%E6%8B%89%E7%99%BE%E9%87%8C%E7%94%BB%E5%BB%8A&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
         "route_metrics": [
           {
-            "label": "从前慢->百里画廊",
-            "value": "4h07m/243.2km"
+            "label": "1",
+            "value": "从前慢->百里"
           },
           {
-            "label": "百里->乔尔玛",
-            "value": "41m/38.4km"
+            "label": "2",
+            "value": "百里->乔尔玛"
           },
           {
-            "label": "独库北段",
-            "value": "5-5.5h"
+            "label": "3",
+            "value": "乔尔玛->哈希勒根"
           },
           {
-            "label": "到奎屯",
-            "value": "21-22点可接受"
+            "label": "4",
+            "value": "哈希勒根->独山子"
           },
           {
-            "label": "住宿",
-            "value": "奎屯丽漫"
+            "label": "5",
+            "value": "独山子->奎屯"
           }
         ],
         "stops": [
@@ -2883,10 +2964,317 @@
           }
         ],
         "notes": [
-          "Day5 不从琼库什台出发，前一晚必须住特克斯从前慢民宿。",
-          "百里画廊按路景轻停，不做唐布拉深玩。",
-          "独库通车和交警管控以当天官方信息为准。",
-          "21:00-22:00 到奎屯可接受；疲劳/天气差独山子降级。"
+          "百度手机端会丢多途经点，Day5 顶部改用 5 段已验证导航。",
+          "百里画廊仍按路景轻停，不转成唐布拉深玩。",
+          "独山子是安全降级点，状态不好就直接住独山子。"
+        ]
+      },
+      "visual_page": {
+        "hide_route_overview": true,
+        "hide_live_panel": true,
+        "hide_metric_grid": true,
+        "hide_timeline": true,
+        "compact_hero": true
+      },
+      "suppress_markdown": true,
+      "visual_guide": {
+        "kicker": "路线图",
+        "title": "Day5 唐布拉百里画廊 + 独库北段图片攻略",
+        "summary": "先看图，再点 1-6。时间基准是北京时间；只有日期匹配 6 月 15 日当天，页面才会按当前时间自动跳转。顶部使用 5 段百度导航，避免一个整日链接在手机端丢途经点。",
+        "image_src": "/static/day5-route-map-clean.jpg",
+        "image_alt": "Day5 特克斯从前慢民宿、唐布拉百里画廊、乔尔玛、独库北段、独山子和奎屯丽漫酒店的水彩路线图",
+        "points": [
+          {
+            "id": "tekes-breakfast",
+            "label": "从前慢出发",
+            "time": "07:30-08:00",
+            "x": 11.0,
+            "y": 35.5,
+            "title": "从前慢早餐退房：8 点前离开特克斯",
+            "description": "Day5 是琼库什台方案里最累的一天，早上只做早餐、退房、装车和路况确认，不再加八卦城游玩。",
+            "details": [
+              "07:30 开始早餐或打包，08:00 前装车出发；08:30 以后会压缩百里画廊轻停和独库停车。",
+              "出发前确认平安独库/新疆交警/天气，尤其看乔尔玛至 G217 入口是否有管控。",
+              "油量不足就在特克斯补满，不把加油压力带进 S315 和独库山路。"
+            ],
+            "map_label": "百度地图：从前慢到百里画廊",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29&destination=%E5%94%90%E5%B8%83%E6%8B%89%E7%99%BE%E9%87%8C%E7%94%BB%E5%BB%8A&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
+            "route_metrics": [
+              {
+                "label": "早餐",
+                "value": "可打包"
+              },
+              {
+                "label": "出发",
+                "value": "08:00"
+              },
+              {
+                "label": "前提",
+                "value": "独库通车"
+              }
+            ],
+            "sections": [
+              {
+                "title": "出发前清单",
+                "checklist": [
+                  "水、咖啡、路餐和纸巾放到前排好拿的位置",
+                  "确认导航第一站是百里画廊，不从琼库什台回头出发",
+                  "确认奎屯丽漫酒店可 21:00-22:00 前后入住",
+                  "确认司机状态，今天不靠硬撑赶路"
+                ]
+              },
+              {
+                "title": "跳过规则",
+                "details": [
+                  "不夜游特克斯，不加八卦城深逛。",
+                  "08:10 后还没出发，就自动压缩百里画廊停车次数。"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "baili-gallery-drive",
+            "label": "百里画廊路景",
+            "time": "08:00-12:10",
+            "x": 28.5,
+            "y": 52.0,
+            "title": "从前慢 -> 百里画廊：把 S315 当路景线走",
+            "description": "百度复核从前慢到百里画廊约 4 小时 7 分钟 / 243.2km。这段不是纯赶路，但只做安全轻停。",
+            "details": [
+              "路上遇到开阔草原、河谷、雪山视野时，找正规观景台或宽阔安全处停车。",
+              "停车 2-3 次足够，每次 5-10 分钟；不要为了拍照停弯道、桥面、落石区或应急车道。",
+              "不去仙女湖、孟克特古道，不把今天变成唐布拉深玩。"
+            ],
+            "map_label": "百度地图：从前慢到百里画廊",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29&destination=%E5%94%90%E5%B8%83%E6%8B%89%E7%99%BE%E9%87%8C%E7%94%BB%E5%BB%8A&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
+            "route_metrics": [
+              {
+                "label": "路程",
+                "value": "243.2km"
+              },
+              {
+                "label": "百度",
+                "value": "4h07m"
+              },
+              {
+                "label": "轻停",
+                "value": "2-3 次"
+              }
+            ],
+            "sections": [
+              {
+                "title": "怎么停",
+                "details": [
+                  "优先停路侧正规停车点、观景台、服务区或宽阔直线路段。",
+                  "天气好就拍草原、河谷和远山；天气一般就别纠结，保证中午前后到乔尔玛。"
+                ]
+              },
+              {
+                "title": "压缩条件",
+                "details": [
+                  "到百里画廊已经晚于 12:30，后续停车直接减半。",
+                  "遇施工、堵车或雨雾，百里画廊只当车窗风景。"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "jorma-supply",
+            "label": "乔尔玛补给",
+            "time": "12:10-14:15",
+            "x": 51.2,
+            "y": 46.0,
+            "title": "百里画廊 -> 乔尔玛：午餐、厕所和入独库",
+            "description": "百里画廊到乔尔玛约 41 分钟 / 38.4km。乔尔玛只做简餐、补水、厕所和烈士陵园短停，不拖成长休息。",
+            "details": [
+              "13:20-14:00 完成午餐、厕所、补水；简餐或自备路餐都可以。",
+              "乔尔玛革命烈士陵园可以短停致意，但不展开成 1 小时参观。",
+              "14:15 前后接上独库北段最舒服；15:00 以后才进独库就减少停车。"
+            ],
+            "map_label": "百度地图：百里画廊到乔尔玛",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E5%94%90%E5%B8%83%E6%8B%89%E7%99%BE%E9%87%8C%E7%94%BB%E5%BB%8A&destination=%E4%B9%94%E5%B0%94%E7%8E%9B%E9%9D%A9%E5%91%BD%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
+            "route_metrics": [
+              {
+                "label": "百里->乔尔玛",
+                "value": "41m"
+              },
+              {
+                "label": "距离",
+                "value": "38.4km"
+              },
+              {
+                "label": "入独库",
+                "value": "15:00 前"
+              }
+            ],
+            "sections": [
+              {
+                "title": "补给重点",
+                "checklist": [
+                  "上厕所、补水、买能量零食",
+                  "看独库北段实时路况和天气",
+                  "确认乔尔玛至 G217 入口晚间管控，不在这里拖到傍晚"
+                ]
+              },
+              {
+                "title": "跳过规则",
+                "details": [
+                  "排队吃饭久就改路餐；今天不为午餐牺牲独库北段。",
+                  "官方路况不明确时，不试探封控路段。"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "duku-north",
+            "label": "独库北段",
+            "time": "14:15-20:10",
+            "x": 72.0,
+            "y": 20.5,
+            "label_side": "left",
+            "title": "乔尔玛 -> 哈希勒根方向：当天核心风景",
+            "description": "下午把时间留给独库北段。乔尔玛到独山子方向按走走停停 5-5.5 小时预留，只停安全观景点。",
+            "details": [
+              "核心看峡谷、雪山、达坂、盘山路和天气变化，不需要再加独山子大峡谷。",
+              "只停观景台、服务区、宽阔安全处；不在弯道、桥面、落石区和应急车道停车。",
+              "天气差、起雾、落石风险或交警管控时，减少停车，优先出山。"
+            ],
+            "map_label": "百度地图：乔尔玛到哈希勒根",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E4%B9%94%E5%B0%94%E7%8E%9B%E9%9D%A9%E5%91%BD%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD&destination=%E5%93%88%E5%B8%8C%E5%8B%92%E6%A0%B9%E8%BE%BE%E5%9D%82&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
+            "route_metrics": [
+              {
+                "label": "预留",
+                "value": "5-5.5h"
+              },
+              {
+                "label": "核心",
+                "value": "达坂雪山"
+              },
+              {
+                "label": "规则",
+                "value": "安全点停车"
+              }
+            ],
+            "sections": [
+              {
+                "title": "停车策略",
+                "details": [
+                  "看到正规停车区再停，错过就错过，不倒车不急刹。",
+                  "每次停车控制 10-20 分钟，晚于节奏就直接压缩下一次。"
+                ]
+              },
+              {
+                "title": "降级条件",
+                "details": [
+                  "到 17:30 仍在高海拔/管控密集路段，就优先出山。",
+                  "司机犯困、头疼或天气变差，减少拍照，找服务区休息。"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "dushanzi-check",
+            "label": "独山子判断",
+            "time": "20:10-20:40",
+            "x": 78.5,
+            "y": 53.0,
+            "label_side": "left",
+            "title": "独山子短停：判断继续奎屯还是就地住下",
+            "description": "独山子不是今天的景点主线，只是出山后的安全判断点。状态正常就继续去奎屯丽漫。",
+            "details": [
+              "到独山子后看司机体力、天气、车况和时间。",
+              "状态正常：继续开 30-40 分钟到奎屯丽漫酒店。",
+              "明显晚于 21:00、天气差或司机疲劳：直接独山子住下，取消继续去奎屯。"
+            ],
+            "map_label": "百度地图：哈希勒根到独山子",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E5%93%88%E5%B8%8C%E5%8B%92%E6%A0%B9%E8%BE%BE%E5%9D%82&destination=%E7%8B%AC%E5%B1%B1%E5%AD%90%E5%8C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
+            "route_metrics": [
+              {
+                "label": "短停",
+                "value": "20-30m"
+              },
+              {
+                "label": "到奎屯",
+                "value": "30-40m"
+              },
+              {
+                "label": "角色",
+                "value": "安全降级"
+              }
+            ],
+            "sections": [
+              {
+                "title": "不做什么",
+                "details": [
+                  "不加独山子大峡谷深玩。",
+                  "不为了住奎屯硬撑夜路；Day6 13:00 还车，安全比酒店更重要。"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "kuitun-liman",
+            "label": "奎屯入住",
+            "time": "20:40-22:10",
+            "x": 88.6,
+            "y": 75.0,
+            "label_side": "left",
+            "title": "奎屯丽漫酒店：入住、晚餐和 Day6 还车准备",
+            "description": "主线 21:00-22:00 到奎屯可接受。进城后先入住，再在酒店附近简单吃饭，不喝酒。",
+            "details": [
+              "20:40-21:20 独山子到奎屯丽漫，进城先停车、入住、放行李。",
+              "21:20 后酒店附近吃大盘鸡、小公鸡、烧烤或简餐；不喝酒。",
+              "睡前确认 Day6 09:00 出发、13:00 还车、加油点和行李整理。"
+            ],
+            "map_label": "百度地图：独山子到奎屯丽漫",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E7%8B%AC%E5%B1%B1%E5%AD%90%E5%8C%BA&destination=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou",
+            "route_metrics": [
+              {
+                "label": "酒店",
+                "value": "丽漫"
+              },
+              {
+                "label": "晚餐",
+                "value": "附近解决"
+              },
+              {
+                "label": "Day6",
+                "value": "09:00 出发"
+              }
+            ],
+            "sections": [
+              {
+                "title": "到店后确认",
+                "checklist": [
+                  "停车位置、热水、早餐时间和退房效率",
+                  "车内垃圾先清一轮，第二天还车更省时间",
+                  "把证件、充电线、墨镜和贵重物品集中放好"
+                ]
+              }
+            ]
+          }
+        ],
+        "nav_links": [
+          {
+            "label": "1 从前慢->百里",
+            "url": "https://api.map.baidu.com/direction?origin=%E7%89%B9%E5%85%8B%E6%96%AF%E4%BB%8E%E5%89%8D%E6%85%A2%E6%B0%91%E5%AE%BF%28%E5%85%AB%E5%8D%A6%E5%9F%8E%E5%BA%97%29&destination=%E5%94%90%E5%B8%83%E6%8B%89%E7%99%BE%E9%87%8C%E7%94%BB%E5%BB%8A&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          },
+          {
+            "label": "2 百里->乔尔玛",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%94%90%E5%B8%83%E6%8B%89%E7%99%BE%E9%87%8C%E7%94%BB%E5%BB%8A&destination=%E4%B9%94%E5%B0%94%E7%8E%9B%E9%9D%A9%E5%91%BD%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          },
+          {
+            "label": "3 乔尔玛->哈希勒根",
+            "url": "https://api.map.baidu.com/direction?origin=%E4%B9%94%E5%B0%94%E7%8E%9B%E9%9D%A9%E5%91%BD%E7%83%88%E5%A3%AB%E9%99%B5%E5%9B%AD&destination=%E5%93%88%E5%B8%8C%E5%8B%92%E6%A0%B9%E8%BE%BE%E5%9D%82&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          },
+          {
+            "label": "4 哈希勒根->独山子",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%93%88%E5%B8%8C%E5%8B%92%E6%A0%B9%E8%BE%BE%E5%9D%82&destination=%E7%8B%AC%E5%B1%B1%E5%AD%90%E5%8C%BA&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          },
+          {
+            "label": "5 独山子->奎屯",
+            "url": "https://api.map.baidu.com/direction?origin=%E7%8B%AC%E5%B1%B1%E5%AD%90%E5%8C%BA&destination=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&mode=driving&origin_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&destination_region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&region=%E4%BC%8A%E7%8A%81%E5%93%88%E8%90%A8%E5%85%8B%E8%87%AA%E6%B2%BB%E5%B7%9E&output=html&src=lvyou"
+          }
         ]
       }
     },
@@ -2903,67 +3291,107 @@
       "lodging_city": "无，当晚飞贵阳",
       "risk_level": "medium",
       "summary": "Day6 的硬约束是 13:00 还车、20:50 起飞。早上 9 点从奎屯丽漫酒店出发，12 点到乌鲁木齐还车点附近，先加满油、清垃圾、拍还车视频，13 点完成还车。还车后打车去西北路吃小李子血站大盘鸡；如果新疆博物馆已预约且行李能处理，14:50-16:20 看博物馆；16:30-17:50 去国际大巴扎轻逛和买手信。18:00 必须离开市区，19:00 左右到天山机场。",
-      "next_action": "确认还车点是否在机场/机场附近；提前 1-7 天预约新疆博物馆，确认行李能否寄存/携带。国际大巴扎只作为还车后有时间的轻逛，不为它牺牲 18:00 离开市区的机场卡点。",
+      "next_action": "Day6 顶部改为 5 段导航：奎屯到机场/还车点自驾、机场到小李子打车、小李子到博物馆、博物馆到大巴扎、大巴扎回机场。还车后不再使用全程自驾或多途经点链接。",
       "timeline": [
         {
           "id": "d6-t1",
           "time": "08:30-09:00",
           "title": "起床、早餐、退房",
-          "detail": "Day5 开车很累，不安排 7 点多起床。酒店早餐优先；不含早就楼下买咖啡/包子/酸奶。9 点必须出发。"
+          "detail": "Day5 开车很累，不安排 7 点多起床。酒店早餐优先；不含早就楼下买咖啡/包子/酸奶。9 点必须出发。",
+          "map_link": {
+            "label": "百度地图：奎屯到还车点",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&destination_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&output=html&src=lvyou"
+          }
         },
         {
           "id": "d6-t2",
           "time": "09:00-12:00",
           "title": "奎屯丽漫酒店 -> 乌鲁木齐",
-          "detail": "从奎屯丽漫酒店走连霍高速回乌鲁木齐。中途只做厕所、咖啡、补水，不安排景点。目标 12 点到还车区域附近。"
+          "detail": "从奎屯丽漫酒店走连霍高速回乌鲁木齐。中途只做厕所、咖啡、补水，不安排景点。目标 12 点到还车区域附近。",
+          "map_link": {
+            "label": "百度地图：奎屯到还车点",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&destination_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&output=html&src=lvyou"
+          }
         },
         {
           "id": "d6-t3",
           "time": "12:00-12:35",
           "title": "加满油 + 清车",
-          "detail": "还车前加满油，车内垃圾清掉，检查随身物品、充电线、墨镜、证件。"
+          "detail": "还车前加满油，车内垃圾清掉，检查随身物品、充电线、墨镜、证件。",
+          "map_link": {
+            "label": "百度地图：奎屯到还车点",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&destination_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&output=html&src=lvyou"
+          }
         },
         {
           "id": "d6-t4",
           "time": "12:35-13:15",
           "title": "还车",
-          "detail": "13:00 还车。拍还车视频：车身四周、轮胎轮毂、油表、里程、内饰。保险全赔也要留证据。"
+          "detail": "13:00 还车。拍还车视频：车身四周、轮胎轮毂、油表、里程、内饰。保险全赔也要留证据。",
+          "map_link": {
+            "label": "百度地图：奎屯到还车点",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&destination_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&output=html&src=lvyou"
+          }
         },
         {
           "id": "d6-t5",
           "time": "13:15-14:00",
           "title": "打车去西北路",
-          "detail": "还车后带行李打车去小李子血站大盘鸡西北路店，先把午饭解决。大巴扎放在博物馆后轻逛，不先绕。"
+          "detail": "还车后带行李打车去小李子血站大盘鸡西北路店，先把午饭解决。大巴扎放在博物馆后轻逛，不先绕。",
+          "map_link": {
+            "label": "百度地图：还车点到小李子",
+            "url": "https://api.map.baidu.com/direction?origin=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&destination=%E5%B0%8F%E6%9D%8E%E5%AD%90%E8%A1%80%E7%AB%99%E5%A4%A7%E7%9B%98%E9%B8%A1%28%E8%A5%BF%E5%8C%97%E8%B7%AF%E5%BA%97%29&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou"
+          }
         },
         {
           "id": "d6-t6",
           "time": "14:00-14:50",
           "title": "午餐：小李子血站大盘鸡",
-          "detail": "点小份/中份大盘鸡或辣子鸡、皮带面、酸奶/卡瓦斯；别点太撑，晚上还要赶飞机。"
+          "detail": "点小份/中份大盘鸡或辣子鸡、皮带面、酸奶/卡瓦斯；别点太撑，晚上还要赶飞机。",
+          "map_link": {
+            "label": "百度地图：还车点到小李子",
+            "url": "https://api.map.baidu.com/direction?origin=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&destination=%E5%B0%8F%E6%9D%8E%E5%AD%90%E8%A1%80%E7%AB%99%E5%A4%A7%E7%9B%98%E9%B8%A1%28%E8%A5%BF%E5%8C%97%E8%B7%AF%E5%BA%97%29&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou"
+          }
         },
         {
           "id": "d6-t7",
           "time": "14:50-16:20",
           "title": "新疆博物馆",
-          "detail": "提前预约且行李能处理，就去新疆博物馆；没预约、行李麻烦或午餐拖延，就直接取消博物馆，改休息。"
+          "detail": "提前预约且行李能处理，就去新疆博物馆；没预约、行李麻烦或午餐拖延，就直接取消博物馆，改休息。",
+          "map_link": {
+            "label": "百度地图：小李子到博物馆",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%B0%8F%E6%9D%8E%E5%AD%90%E8%A1%80%E7%AB%99%E5%A4%A7%E7%9B%98%E9%B8%A1%28%E8%A5%BF%E5%8C%97%E8%B7%AF%E5%BA%97%29&destination=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA%E5%8D%9A%E7%89%A9%E9%A6%86&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou"
+          }
         },
         {
           "id": "d6-t8",
           "time": "16:30-17:50",
           "title": "国际大巴扎轻逛 / 手信",
-          "detail": "只做轻逛、买少量手信、吃点小吃和上厕所；不深逛、不排长队。17:50 开始收束，18:00 必须出发去机场。"
+          "detail": "只做轻逛、买少量手信、吃点小吃和上厕所；不深逛、不排长队。17:50 开始收束，18:00 必须出发去机场。",
+          "map_link": {
+            "label": "百度地图：博物馆到大巴扎",
+            "url": "https://api.map.baidu.com/direction?origin=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA%E5%8D%9A%E7%89%A9%E9%A6%86&destination=%E6%96%B0%E7%96%86%E5%9B%BD%E9%99%85%E5%A4%A7%E5%B7%B4%E6%89%8E&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou"
+          }
         },
         {
           "id": "d6-t9",
           "time": "18:00-19:00",
           "title": "前往天山机场",
-          "detail": "市区打车回机场，按 40-60 分钟预留；遇晚高峰、下雨、行李寄存麻烦或大巴扎拥堵，17:30-17:45 就走。"
+          "detail": "市区打车回机场，按 40-60 分钟预留；遇晚高峰、下雨、行李寄存麻烦或大巴扎拥堵，17:30-17:45 就走。",
+          "map_link": {
+            "label": "百度地图：大巴扎回机场",
+            "url": "https://api.map.baidu.com/direction?origin=%E6%96%B0%E7%96%86%E5%9B%BD%E9%99%85%E5%A4%A7%E5%B7%B4%E6%89%8E&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou"
+          }
         },
         {
           "id": "d6-t10",
           "time": "19:00-20:50",
           "title": "值机安检 + 飞贵阳",
-          "detail": "20:50 乌鲁木齐起飞。19:00 左右到机场后办理值机、安检和机场晚餐；贵阳落地时间以航司/航旅纵横为准。"
+          "detail": "20:50 乌鲁木齐起飞。19:00 左右到机场后办理值机、安检和机场晚餐；贵阳落地时间以航司/航旅纵横为准。",
+          "map_link": {
+            "label": "百度地图：大巴扎回机场",
+            "url": "https://api.map.baidu.com/direction?origin=%E6%96%B0%E7%96%86%E5%9B%BD%E9%99%85%E5%A4%A7%E5%B7%B4%E6%89%8E&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou"
+          }
         }
       ],
       "food": {
@@ -3074,7 +3502,397 @@
           "min": 60,
           "max": 100
         }
-      ]
+      ],
+      "visual_page": {
+        "hide_route_overview": true,
+        "hide_live_panel": true,
+        "hide_metric_grid": true,
+        "hide_timeline": true,
+        "compact_hero": true
+      },
+      "suppress_markdown": true,
+      "overview_map": {
+        "title": "Day6：奎屯自驾还车 + 还车后打车市区收尾",
+        "summary": "Day6 使用分段导航：上午自驾到乌鲁木齐机场/还车点；还车后按机场到小李子、小李子到博物馆、博物馆到大巴扎、大巴扎回机场逐段打车。",
+        "action_label": "百度分段导航：奎屯到还车点",
+        "url": "https://api.map.baidu.com/direction?origin=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&destination_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&output=html&src=lvyou",
+        "embed_url": "https://api.map.baidu.com/direction?origin=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&destination_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&output=html&src=lvyou",
+        "route_metrics": [
+          {
+            "label": "1",
+            "value": "奎屯->还车点"
+          },
+          {
+            "label": "2",
+            "value": "还车点->午餐"
+          },
+          {
+            "label": "3",
+            "value": "午餐->博物馆"
+          },
+          {
+            "label": "4",
+            "value": "博物馆->大巴扎"
+          },
+          {
+            "label": "5",
+            "value": "大巴扎->机场"
+          }
+        ],
+        "stops": [
+          {
+            "label": "自驾起点",
+            "name": "奎屯丽漫酒店"
+          },
+          {
+            "label": "自驾终点",
+            "name": "乌鲁木齐天山国际机场 / 机场附近还车点"
+          },
+          {
+            "label": "打车 1",
+            "name": "小李子血站大盘鸡（西北路店）"
+          },
+          {
+            "label": "打车 2",
+            "name": "新疆维吾尔自治区博物馆"
+          },
+          {
+            "label": "打车 3",
+            "name": "新疆国际大巴扎"
+          },
+          {
+            "label": "打车终点",
+            "name": "乌鲁木齐天山国际机场"
+          }
+        ],
+        "notes": [
+          "百度手机端会丢多途经点，Day6 顶部改用 5 段已验证导航。",
+          "还车点尚需按租车平台最终门店确认；当前先按乌鲁木齐天山国际机场/机场附近还车点规划。",
+          "13:00 还车后已经没有车，市区段按打车执行。",
+          "18:00 必须离开市区，不能为大巴扎赌晚高峰。"
+        ]
+      },
+      "visual_guide": {
+        "kicker": "路线图",
+        "title": "Day6 还车 + 乌鲁木齐收尾图片攻略",
+        "summary": "先看图，再点 1-7。时间基准是北京时间；只有日期匹配 6 月 16 日当天，页面才会按当前时间自动跳转。Day6 顶部使用 5 段导航：还车前自驾，13:00 之后按打车段逐段执行。",
+        "image_src": "/static/day6-route-map-clean.jpg",
+        "image_alt": "Day6 奎屯丽漫酒店到乌鲁木齐还车、午餐、博物馆、大巴扎和机场起飞的水彩路线图",
+        "nav_links": [
+          {
+            "label": "1 自驾到还车点",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&destination_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&output=html&src=lvyou"
+          },
+          {
+            "label": "2 还车点->午餐",
+            "url": "https://api.map.baidu.com/direction?origin=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&destination=%E5%B0%8F%E6%9D%8E%E5%AD%90%E8%A1%80%E7%AB%99%E5%A4%A7%E7%9B%98%E9%B8%A1%28%E8%A5%BF%E5%8C%97%E8%B7%AF%E5%BA%97%29&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou"
+          },
+          {
+            "label": "3 午餐->博物馆",
+            "url": "https://api.map.baidu.com/direction?origin=%E5%B0%8F%E6%9D%8E%E5%AD%90%E8%A1%80%E7%AB%99%E5%A4%A7%E7%9B%98%E9%B8%A1%28%E8%A5%BF%E5%8C%97%E8%B7%AF%E5%BA%97%29&destination=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA%E5%8D%9A%E7%89%A9%E9%A6%86&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou"
+          },
+          {
+            "label": "4 博物馆->大巴扎",
+            "url": "https://api.map.baidu.com/direction?origin=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA%E5%8D%9A%E7%89%A9%E9%A6%86&destination=%E6%96%B0%E7%96%86%E5%9B%BD%E9%99%85%E5%A4%A7%E5%B7%B4%E6%89%8E&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou"
+          },
+          {
+            "label": "5 大巴扎->机场",
+            "url": "https://api.map.baidu.com/direction?origin=%E6%96%B0%E7%96%86%E5%9B%BD%E9%99%85%E5%A4%A7%E5%B7%B4%E6%89%8E&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou"
+          }
+        ],
+        "points": [
+          {
+            "id": "kuitun-checkout",
+            "label": "早餐退房",
+            "time": "08:30-09:00",
+            "x": 9.0,
+            "y": 45.0,
+            "title": "奎屯丽漫酒店：早餐、退房、9 点准时走",
+            "description": "Day5 已经很累，Day6 不安排 7 点多起床；但 09:00 必须离开奎屯，上午只服务于 13:00 还车。",
+            "details": [
+              "酒店含早就直接吃；不含早就楼下买咖啡、包子、酸奶，不坐下来慢吃。",
+              "退房前确认车钥匙、证件、手机、充电线、墨镜和行李都在。",
+              "09:00 出发是硬线；早餐不能影响还车。"
+            ],
+            "map_label": "百度地图：奎屯到还车点",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&destination_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&output=html&src=lvyou",
+            "route_metrics": [
+              {
+                "label": "起床",
+                "value": "08:30"
+              },
+              {
+                "label": "出发",
+                "value": "09:00"
+              },
+              {
+                "label": "目标",
+                "value": "13:00 还车"
+              }
+            ],
+            "sections": [
+              {
+                "title": "上车前清单",
+                "checklist": [
+                  "行李全部装车，后备箱别漏小包",
+                  "保留水、咖啡和纸巾在前排",
+                  "确认导航终点是机场/机场附近还车点，不先去市区"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "kuitun-urumqi-drive",
+            "label": "高速回乌市",
+            "time": "09:00-12:00",
+            "x": 40.5,
+            "y": 44.0,
+            "title": "奎屯 -> 乌鲁木齐：只开回还车区",
+            "description": "这段按约 3 小时 / 250km 预留。中途只做厕所、咖啡和补水，不安排景点。",
+            "details": [
+              "路线按奎屯丽漫酒店到乌鲁木齐天山国际机场/机场附近还车点执行。",
+              "目标 12:00 左右到还车区域附近，留 30-45 分钟加油、清车和拍视频。",
+              "如果高速拥堵或天气差，中午市区活动自动压缩，不影响 13:00 还车。"
+            ],
+            "map_label": "百度地图：奎屯到还车点",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&destination_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&output=html&src=lvyou",
+            "route_metrics": [
+              {
+                "label": "开车",
+                "value": "约 3h"
+              },
+              {
+                "label": "距离",
+                "value": "约 250km"
+              },
+              {
+                "label": "停靠",
+                "value": "厕所/咖啡"
+              }
+            ],
+            "sections": [
+              {
+                "title": "路上规则",
+                "details": [
+                  "不去乌鲁木齐市区吃午饭，不先绕景点。",
+                  "车上保留 Day5 剩余水和咖啡，别空腹硬开。"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "fuel-return-car",
+            "label": "加油还车",
+            "time": "12:00-13:15",
+            "x": 55.0,
+            "y": 43.0,
+            "title": "加满油 + 清车 + 13:00 还车",
+            "description": "还车点还要按租车平台最终门店确认；当前先按乌鲁木齐天山国际机场/机场附近还车点规划。",
+            "details": [
+              "12:00-12:35 加满油、清垃圾、检查后备箱、门侧储物格、中控和座椅缝。",
+              "12:35-13:15 办还车；拍车身四周、轮胎轮毂、油表、里程、内饰视频。",
+              "13:00 还车是硬约束，保险全赔也要留证据。"
+            ],
+            "map_label": "百度地图：奎屯到还车点",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E5%A5%8E%E5%B1%AF%E4%B8%BD%E6%BC%AB%E9%85%92%E5%BA%97&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&destination_region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&region=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA&output=html&src=lvyou",
+            "route_metrics": [
+              {
+                "label": "加油清车",
+                "value": "35m"
+              },
+              {
+                "label": "还车",
+                "value": "13:00"
+              },
+              {
+                "label": "后续",
+                "value": "打车"
+              }
+            ],
+            "sections": [
+              {
+                "title": "还车证据",
+                "checklist": [
+                  "油表、里程和车内视频",
+                  "四门、前后保险杠、轮毂轮胎视频",
+                  "加油小票或电子记录",
+                  "确认平台是否需要现场签字或拍照上传"
+                ]
+              },
+              {
+                "title": "路线校正",
+                "details": [
+                  "如果最终还车门店不是机场附近，把顶部自驾导航替换为真实门店。",
+                  "还车后不要再使用自驾路线，市区段只按打车路线执行。"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "xiao-lizi-lunch",
+            "label": "西北路午餐",
+            "time": "13:15-14:50",
+            "x": 76.0,
+            "y": 34.5,
+            "label_side": "left",
+            "title": "还车后打车去小李子血站大盘鸡",
+            "description": "还车后已经没车，带行李打车去西北路。先吃午饭，再看是否能进博物馆。",
+            "details": [
+              "13:15-14:00 从还车点/机场区域打车去西北路，目标小李子血站大盘鸡（西北路店）。",
+              "14:00-14:50 午餐；点小份/中份大盘鸡或辣子鸡、皮带面、酸奶/卡瓦斯。",
+              "排队超过 25 分钟就换友好/西北路附近拌面或新疆菜，不为了最后一顿误机。"
+            ],
+            "map_label": "百度地图：还车点到小李子",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&destination=%E5%B0%8F%E6%9D%8E%E5%AD%90%E8%A1%80%E7%AB%99%E5%A4%A7%E7%9B%98%E9%B8%A1%28%E8%A5%BF%E5%8C%97%E8%B7%AF%E5%BA%97%29&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou",
+            "route_metrics": [
+              {
+                "label": "交通",
+                "value": "打车"
+              },
+              {
+                "label": "午餐",
+                "value": "50m"
+              },
+              {
+                "label": "预算",
+                "value": "140-220"
+              }
+            ],
+            "sections": [
+              {
+                "title": "点餐策略",
+                "details": [
+                  "两人不要点太撑，晚上还要赶飞机。",
+                  "前几天鸡吃多了，就改椒麻鸡、烤肉或凉菜组合。"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "xinjiang-museum",
+            "label": "新疆博物馆",
+            "time": "14:50-16:20",
+            "x": 75.0,
+            "y": 54.0,
+            "label_side": "left",
+            "title": "新疆博物馆：有预约、有行李处理再进",
+            "description": "博物馆是还车后最稳的室内文化点，但必须满足预约、行李和到达时间条件。",
+            "details": [
+              "提前 1-7 天预约；6 月 16 日是周二，符合常见开放日。",
+              "15:40 前能到博物馆附近、行李能寄存或处理，才进入博物馆。",
+              "没预约、行李麻烦、午餐拖延或到得太晚，就直接取消，改休息或提前去大巴扎轻逛。"
+            ],
+            "map_label": "百度地图：小李子到博物馆",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E5%B0%8F%E6%9D%8E%E5%AD%90%E8%A1%80%E7%AB%99%E5%A4%A7%E7%9B%98%E9%B8%A1%28%E8%A5%BF%E5%8C%97%E8%B7%AF%E5%BA%97%29&destination=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA%E5%8D%9A%E7%89%A9%E9%A6%86&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou",
+            "route_metrics": [
+              {
+                "label": "开放",
+                "value": "需预约"
+              },
+              {
+                "label": "停留",
+                "value": "约 1.5h"
+              },
+              {
+                "label": "16:30",
+                "value": "常见停进"
+              }
+            ],
+            "sections": [
+              {
+                "title": "放弃条件",
+                "checklist": [
+                  "没预约",
+                  "行李无法寄存或携带不方便",
+                  "到达西北路已经晚于 15:40",
+                  "午餐排队或还车拖延",
+                  "当天太累，只想坐着休息"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "bazaar-light-walk",
+            "label": "大巴扎轻逛",
+            "time": "16:30-17:50",
+            "x": 71.5,
+            "y": 78.0,
+            "label_side": "left",
+            "title": "国际大巴扎：只轻逛和买少量手信",
+            "description": "大巴扎不是下午主任务，只作为还车后有余力的收尾。17:50 开始收束，18:00 必须离开市区。",
+            "details": [
+              "16:30-17:50 只做轻逛、买少量手信、吃点小吃和上厕所。",
+              "不深逛、不排长队、不买大件；行李不方便就缩短。",
+              "遇晚高峰、下雨、行李寄存麻烦或人多拥挤，17:30-17:45 就走。"
+            ],
+            "map_label": "百度地图：博物馆到大巴扎",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA%E5%8D%9A%E7%89%A9%E9%A6%86&destination=%E6%96%B0%E7%96%86%E5%9B%BD%E9%99%85%E5%A4%A7%E5%B7%B4%E6%89%8E&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou",
+            "route_metrics": [
+              {
+                "label": "停留",
+                "value": "约 1h"
+              },
+              {
+                "label": "收束",
+                "value": "17:50"
+              },
+              {
+                "label": "离城",
+                "value": "18:00"
+              }
+            ],
+            "sections": [
+              {
+                "title": "买东西规则",
+                "details": [
+                  "只买能随身带走的小件手信，别增加托运行李压力。",
+                  "排队美食不吃，机场还可以补简餐和水。"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "airport-flight",
+            "label": "回机场起飞",
+            "time": "18:00-20:50",
+            "x": 86.0,
+            "y": 78.0,
+            "label_side": "left",
+            "title": "18:00 离开市区，19:00 到机场",
+            "description": "20:50 起飞，目标 19:00 左右到天山机场。Day6 最后阶段不赌晚高峰。",
+            "details": [
+              "18:00 从市区打车回机场，按 40-60 分钟预留。",
+              "19:00 左右到机场后办理值机、托运、安检和机场晚餐。",
+              "国内航班按提前 2 小时到机场执行；值机、登机口关闭时间以航司和机场当天通知为准。"
+            ],
+            "map_label": "百度地图：大巴扎回机场",
+            "map_url": "https://api.map.baidu.com/direction?origin=%E6%96%B0%E7%96%86%E5%9B%BD%E9%99%85%E5%A4%A7%E5%B7%B4%E6%89%8E&destination=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%A4%A9%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&mode=driving&origin_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&destination_region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&region=%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82&output=html&src=lvyou",
+            "route_metrics": [
+              {
+                "label": "离城",
+                "value": "18:00"
+              },
+              {
+                "label": "到机场",
+                "value": "19:00"
+              },
+              {
+                "label": "起飞",
+                "value": "20:50"
+              }
+            ],
+            "sections": [
+              {
+                "title": "提前走条件",
+                "details": [
+                  "下雨、堵车、午餐拖延、行李寄存麻烦或大巴扎拥挤，都提前到 17:30-17:45 离开。",
+                  "机场晚餐可以过安检后解决，不在市区吃第二顿正餐。"
+                ]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "day7",
@@ -3412,7 +4230,7 @@
       "name": "13:00 还车",
       "status": "待确认",
       "price": 0,
-      "notes": "还车前加满油、清垃圾、拍车身/轮毂/油表/里程/内饰视频。确认还车点是否在机场或机场附近。"
+      "notes": "还车前加满油、清垃圾、拍车身/轮毂/油表/里程/内饰视频。当前导航先按乌鲁木齐天山国际机场/机场附近还车点执行；最终门店以租车平台为准，确认后替换 Day6 自驾导航。"
     },
     {
       "id": "booking-food-day6-lunch",
@@ -3861,7 +4679,7 @@
     {
       "id": "prep-offline-map",
       "name": "离线地图 / 百度路线收藏",
-      "quantity": "乌鲁木齐、赛里木湖、霍城/伊宁、琼库什台、雪山古道民宿到新桥2号停车场/后山卡口整日路线、村委会/2号停车场备用、林溪餐厅到特克斯从前慢、从前慢到百里画廊、百里画廊到乔尔玛、乔尔玛到哈希勒根达坂/独库北段、独山子到奎屯丽漫酒店和机场相关路线",
+      "quantity": "乌鲁木齐、赛里木湖、霍城/伊宁、琼库什台；Day3 霍城到六星街、六星街到伊宁天山站加油、加油站到雪山古道民宿；Day4 民宿到新桥2号停车场/后山卡口、民宿到村委会停车场备用、林溪餐厅到特克斯从前慢；Day5 从前慢到百里画廊、百里画廊到乔尔玛、乔尔玛到哈希勒根、哈希勒根到独山子、独山子到奎屯丽漫；Day6 奎屯丽漫到乌鲁木齐机场/还车点、小李子-新疆博物馆-大巴扎-机场分段打车路线",
       "category": "07 电子导航",
       "status": "待购买"
     },
